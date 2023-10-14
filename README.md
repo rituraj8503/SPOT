@@ -53,9 +53,6 @@ User: "I need to integrate my application with third-party APIs and services. Wh
 #LLM Agent:
 
 
-
-
-
 Resource Specification Recommender:
 
 Example Input: "I have a web application. It's a small e-commerce site. I expect around 10,000 visitors per day. What's the best cloud provider and instance type for me?"
@@ -87,23 +84,37 @@ Example Input: {"Resource 1": Web Hosting Platform,
                 "Resource 6": Security,
                 "Resource 7": Monitoring and Analytics} 
 
-Output: {"Optimal Resource List 1": ["AWS Compute Engine", 
+Output: {"Web Hosting Platform": ["AWS Compute Engine", 
          "Optimal Resource List 2": ["Amazon RDS",
          "Optimal Resource List 3": ["Amazon CloudFront",
 
 
 
-
-
-
-Cross Cloud/Single Cloud Setup:
+Choice of Cloud Platform:
 
 Example Input:
 LLM Agent: "Are you okay with having cross cloud dependencies"
 User: "Yes"
 
 Output:
-Setup the resources with most optimal resources without bothering about the cloud platform each resource belongs to. Resource 1 could be an AWS resource and resource 2 could be a GCP resource but the automated deployment will deploy 
+Setup the resources with most optimal resource types without bothering about the cloud platform each resource belongs to. Resource 1 could be an AWS resource and resource 2 could be a GCP resource but the automated deployment will deploy without considering differences in the cloud providers
+
+Example Input: 
+LLM Agent: "Are you okay with having cross cloud dependencies"
+User: "No"
+
+Output:
+Setup the resources with most optimal resource types after ensuring that each resource belongs to the same cloud provider. So if resource 1 is AWS, find the resource in the optimal resource list 2 that also belongs to AWS. 
+
+
+
+Automate Cloud Agnostic Infrastructure Deployment:
+
+Abstract Class with separate implementations for cloud infra deployment for each cloud provider (example: AWS deployment, GCP deployment, Azure deployment)
+The resources selected by the resource specification recommender and the cost optimizer will be sent as input to this abstract class which will be instances in the constructor of the abstract class
+
+Then after the cloud provider is identified, the infrastructure gets deployed using PULUMI (Infrastructure AS Code). 
+
 
 
 
