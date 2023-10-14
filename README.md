@@ -104,6 +104,7 @@ Automate Cloud Agnostic Infrastructure Deployment:
 Abstract Class with separate implementations for cloud infra deployment for each cloud provider (example: AWS deployment, GCP deployment, Azure deployment)
 The resources selected by the resource specification recommender and the cost optimizer will be sent as input to this abstract class which will be instances in the constructor of the abstract class. The entire deployment process is basically mutliple layers of abstraction added on top of an IAC platform PULUMI which means that the user does not need to bother about anything cloud specific. 
 
+```
 class CloudInfrastructure(ABC):
     @abstractmethod
     def __init__(self, gcp_proj, number_of_vms, public_key, vm_size, existing_net, cloud_platform, network_id, subnet_id,security_group_id, resource_group,
@@ -151,11 +152,14 @@ class CloudInfrastructure(ABC):
 
       ......
 
+```
+
 Then after the cloud provider is identified, the infrastructure gets deployed using PULUMI (Infrastructure AS Code). PULUMI allows cloud infrastruture deployment using your favorite programming language (In this case, our backend will be built using Typescript and Python). PULUMI deploys and manages the clients state of cloud infra all by itself so that the user does not need to worry at all about what their current infra looks like. It also validates the cloud credentials for the user before it gets deployed
 
 
 This is an snippet of the GCP implementation of the deployment process:
 
+```
 class GCPInfrastructure(CloudInfrastructure):
     def __init__(self, gcp_project, number_of_vms, public_key, vm_size, cloud_platform, network_id, subnet_id, security_group_id, resource_group,
                  network_interface, count, instance_type, ami, vpc_name, resource_group_name, security_group_name, firewall_rule_name, subnet_name,
@@ -242,7 +246,11 @@ class GCPInfrastructure(CloudInfrastructure):
 
         ......
 
+```
 
+The user also has the choice of integrating their existing infrastructure with their new updates, so that they do not need to create separate resources every time they deploy. This saves cloud costs and alows reusability of infra which also prevents capacity constraint issues.  
+
+```
  if not self.network_id:
             print("Deploying VM " + self.vm_name[self.count - 1] + " in the region closest to your ip in the new VPC")
             print("------------------------------------------------------------------------")
@@ -252,10 +260,11 @@ class GCPInfrastructure(CloudInfrastructure):
            print("------------------------------------------------------------------------")
         region = find_closest_gcp_region(get_user_location_from_ip())
 
-The user also has the choice of integrating their existing infrastructure with their new updates, so that they do not need to create separate resources every time they deploy. This saves cloud costs and alows reusability of infra which also prevents capacity constraint issues.  
+```
 
-Finally once everything gets deployed a stack output is generated which contains information about how the clients can ssh into their applications on the cloud. The stack output looks something like
+Finally once everything gets deployed a stack output is generated which contains information about how the clients can ssh into their applications on the cloud. The stack output gets communicated to the user through the LLM Agent. The stack output contains information about what are the ids of the virtual machine deployed or what are the ids of the Virtual Private Cloud deployed so that the user can use these external ids to ssh into the resource.
 
+Firewall rules also get setup automatically securing the resource and the user's public key gets written into the authorized_keys file of the resource so that the key exchange process works efficiently.
 
 
 
