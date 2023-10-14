@@ -32,7 +32,14 @@ header {
     align-items: center;
     padding: 10px 20px;
 }
-
+.founder{
+    padding-top: 200px;
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: space-evenly;
+}
 header img {
     max-height: 50px;
 }
@@ -46,7 +53,13 @@ nav ul {
 nav ul li {
     text-transform: uppercase;
 }
-
+.team{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 .container {
     display: flex;
     align-items: center;
