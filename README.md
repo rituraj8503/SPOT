@@ -91,6 +91,21 @@ Output: {"Optimal Resource List 1": ["AWS Compute Engine",
          "Optimal Resource List 2": ["Amazon RDS",
          "Optimal Resource List 3": ["Amazon CloudFront",
 
+<details>
+
+<summary>Tips for collapsed sections</summary>
+
+### You can add a header
+
+You can add text within a collapsed section. 
+
+You can add an image or a code block, too.
+
+```ruby
+   puts "Hello World"
+```
+
+</details>
 
 
 
@@ -105,7 +120,7 @@ User: "Yes"
 
 Output:
 
-Setup the resources with Optimal
+Setup the resources with most optimal resources without bothering about the cloud platform each resource belongs to. 
 
 
 
