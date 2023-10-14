@@ -156,6 +156,7 @@ Then after the cloud provider is identified, the infrastructure gets deployed us
 
 This is an snippet of the GCP implementation of the deployment process:
 
+```
 class GCPInfrastructure(CloudInfrastructure):
     def __init__(self, gcp_project, number_of_vms, public_key, vm_size, cloud_platform, network_id, subnet_id, security_group_id, resource_group,
                  network_interface, count, instance_type, ami, vpc_name, resource_group_name, security_group_name, firewall_rule_name, subnet_name,
@@ -251,6 +252,8 @@ class GCPInfrastructure(CloudInfrastructure):
            print("Deploying VM " + self.vm_name[self.count - 1] + " in the region closest to your ip in the existing VPC")
            print("------------------------------------------------------------------------")
         region = find_closest_gcp_region(get_user_location_from_ip())
+
+```
 
 The user also has the choice of integrating their existing infrastructure with their new updates, so that they do not need to create separate resources every time they deploy. This saves cloud costs and alows reusability of infra which also prevents capacity constraint issues.  
 
