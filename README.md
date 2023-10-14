@@ -1,57 +1,51 @@
 # SPOT (Prevents Vendor Lock In and ALlows Small Devs save cloud costs and enjoy automated cloud infrastructure deployment and management)
 
 
-#Workflow
+## Workflow
 
 
 
 Query ----> LLM Agent ---> Resource Specification Recommender ---> Cloud Cost Optimizer ----> Automated Cloud Agnostic Deployment
 
+## Customer Workflow
+Query ----> All Necessary Resources + Optimized Price for Resources ----> Automated Cloud Agnostic Deployment
 
 
-
-#Query:
-
-
-
-
+## Query:
 Queries can be as abstract as possible. No background in cloud deployment required.
 
-General Cloud Recommendation:
+### General Cloud Recommendation:
 User: "I have a web application. It's a small e-commerce site. I expect around 10,000 visitors per day. What's the best cloud provider and instance type for me?"
 
-Cost-Effective Deployment Request:
+### Cost-Effective Deployment Request:
 User: "I need to deploy a database server and a front-end application. My budget is limited to $50 per month. What are my options?"
 
-Scalability Requirement:
+### Scalability Requirement:
 User: "I am developing a mobile app. I anticipate a rapid increase in users after the launch. Which cloud provider offers the best scalability options for mobile applications?"
 
-Specific Cloud Provider Inquiry:
+### Specific Cloud Provider Inquiry:
 User: "I'm already using AWS for some services. Can you recommend an instance type and region within AWS for my machine learning backend?"
 
-Disaster Recovery Focus:
+### Disaster Recovery Focus:
 User: "I want to ensure my application has a disaster recovery plan. How can I deploy my services redundantly across different regions?"
 
-Specific Technical Requirement:
+### Specific Technical Requirement:
 User: "My application relies heavily on GPU processing. Which cloud provider offers the best GPU instances, and how can I deploy my application there?"
 
-Containerization Preference:
+### Containerization Preference:
 User: "I prefer using containers. Can you recommend a managed Kubernetes service and help me deploy my microservices architecture?"
 
-Compliance and Security Concerns:
+### Compliance and Security Concerns:
 User: "My application deals with sensitive user data. Which cloud provider is known for its strong security measures and compliance standards?"
 
-Specific Software Stack:
+### Specific Software Stack:
 User: "I am using a Node.js backend with a MongoDB database. Which cloud provider offers seamless integration for these technologies, and how can I deploy them?"
 
-Integration and Third-Party Services:
+### Integration and Third-Party Services:
 User: "I need to integrate my application with third-party APIs and services. Which cloud provider offers easy integration options, and how can I set up these connections?"
 
 
-
-
-#LLM Agent:
-
+## LLM Agent:
 
 Resource Specification Recommender:
 
@@ -64,11 +58,6 @@ Output:        {"Resource 1": Web Hosting Platform,
                 "Resource 5": Auto Scaling,
                 "Resource 6": Security,
                 "Resource 7": Monitoring and Analytics} 
-
-
-
-
-                
 
                 
 Cost Optimizer:
@@ -114,8 +103,6 @@ Abstract Class with separate implementations for cloud infra deployment for each
 The resources selected by the resource specification recommender and the cost optimizer will be sent as input to this abstract class which will be instances in the constructor of the abstract class
 
 Then after the cloud provider is identified, the infrastructure gets deployed using PULUMI (Infrastructure AS Code). 
-
-
 
 
 
