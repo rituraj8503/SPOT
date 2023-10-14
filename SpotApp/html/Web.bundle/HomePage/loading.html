@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            /* Set the background image of your choice */
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading-circle-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .loading-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            transform: rotate(0deg);
+            border: 3px solid rgba(4, 122, 69, 0.2);
+            border-top: 3px solid #047a45;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: spin-circle 1s linear infinite;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 53%;
+            transform: translate(-50%, -50%);
+            /* Adjust the logo size as needed */
+            width: 89px;
+            height: 89px;
+            z-index: 1; /* Ensure the logo is above the circle */
+        }
+
+        @keyframes spin-circle {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-circle-container">
+        <div class="loading-circle"></div>
+        <img src="../Assets/Spot_Logo.jpeg" alt="Logo" class="logo">
+    </div>
+
+    <script>
+        // Set the delay time in milliseconds (e.g., 5000 ms for 5 seconds)
+        const delayTime = 10000;
+
+        // Function to redirect to the main page after the delay time
+        setTimeout(() => {
+            window.location.href = "home.html"; // Replace "main.html" with the actual file name of your main page
+        }, delayTime);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-Specific Webpage</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="day-mode">
+    <header class="day-head" id="header">
+
+        <div class="header-container-first">
+            <a href="./home.html" class="logo"><img src="../Assets/cersai_logo.png" alt="Logo"></a>
+            <div class="title">CERSAI</div>
+        <div class="dropdown" id="dropdown">
+            <div class="settings" onclick="toggleDropdown()">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </div>
+            <div class="dropdown-content" on>
+                <a href="#" onclick="toggleLanguage()" id="language">हिंदी</a>
+                <a href="#" onclick="toggleMode()"><span class="material-symbols-outlined" id="mode">
+                    light_mode
+                    </span></a>
+            </div>
+        </div>
+        
+        <div class="notif" onclick="changeIcon(); showModal()" >            
+            <span id="icon" class="material-symbols-outlined">
+                notifications
+            </span>
+        </div>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+              <p>This is a notification pop-up.</p>
+              <button onclick="dismissModal()">Dismiss</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="full-form" data-translate="fullForm">
+            Central Registry of Securitisation Asset
+            Reconstruction and Security Interest of India
+        </div>
+    </header>
+    <h1 style="color:  #047a45; text-align: center; margin: 10px;">AOR Based Search</h1>
+    <div class="AOR-Category form">
+        <div class="row-txt">AOR Category</div> 
+    <select id="aorCategory"  class="form-dropdown" aria-required="true" aria-invalid="false">
+        <option value="0">
+            Please Select One
+        </option> 
+        <option value="1">
+            Whole Turn Over Limit
+        </option>
+        <option  value="2">
+            Factoring Unit based (TReDS)
+        </option>
+        <option  value="3">
+            Invoice based
+        </option>
+    </select>
+    <div class="Limit form" style="display: none;">
+            <div class="row-txt">Assignor Details</div> 
+            <input type="text" id="limitAssignorName" placeholder="Assignor Name"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            <select name="assignorcountry'" id="assignorcountry'" data-vv-as="Assignor Country" class="txt dropdown form-control" aria-required="true" aria-invalid="false" fdprocessedid="ip9ye"><option value="">Please Select One</option> <option class="txt dropdown" value="ABW">
+                    Aruba
+                    </option><option class="txt dropdown" value="AFG">
+                    Afghanistan
+                    </option><option class="txt dropdown" value="AGO">
+                    Angola
+                    </option><option class="txt dropdown" value="AIA">
+                    Anguilla
+                    </option><option class="txt dropdown" value="ALB">
+                    Albania
+                    </option><option class="txt dropdown" value="AND">
+                    Andorra
+                    </option><option class="txt dropdown" value="ARE">
+                    United Arab Emirates
+                    </option><option class="txt dropdown" value="ARG">
+                    Argentina
+                    </option><option class="txt dropdown" value="ARM">
+                    Armenia
+                    </option><option class="txt dropdown" value="ASM">
+                    American Samoa
+                    </option><option class="txt dropdown" value="ATA">
+                    Antarctica
+                    </option><option class="txt dropdown" value="ATF">
+                    French Southern Territories
+                    </option><option class="txt dropdown" value="ATG">
+                    Antigua and Barbuda
+                    </option><option class="txt dropdown" value="AUS">
+                    Australia
+                    </option><option class="txt dropdown" value="AUT">
+                    Austria
+                    </option><option class="txt dropdown" value="AZE">
+                    Azerbaijan
+                    </option><option class="txt dropdown" value="BDI">
+                    Burundi
+                    </option><option class="txt dropdown" value="BEL">
+                    Belgium
+                    </option><option class="txt dropdown" value="BEN">
+                    Benin
+                    </option><option class="txt dropdown" value="BES">
+                    Bonaire
+                    </option><option class="txt dropdown" value="BFA">
+                    Burkina Faso
+                    </option><option class="txt dropdown" value="BGD">
+                    Bangladesh
+                    </option><option class="txt dropdown" value="BGR">
+                    Bulgaria
+                    </option><option class="txt dropdown" value="BHR">
+                    Bahrain
+                    </option><option class="txt dropdown" value="BHS">
+                    Bahamas
+                    </option><option class="txt dropdown" value="BIH">
+                    Bosnia and Herzegovina
+                    </option><option class="txt dropdown" value="BLM">
+                    Saint Barthelemy
+                    </option><option class="txt dropdown" value="BLR">
+                    Belarus
+                    </option><option class="txt dropdown" value="BLZ">
+                    Belize
+                    </option><option class="txt dropdown" value="BMU">
+                    Bermuda
+                    </option><option class="txt dropdown" value="BOL">
+                    Bolivia
+                    </option><option class="txt dropdown" value="BRA">
+                    Brazil
+                    </option><option class="txt dropdown" value="BRB">
+                    Barbados
+                    </option><option class="txt dropdown" value="BRN">
+                    Brunei Darussalam
+                    </option><option class="txt dropdown" value="BTN">
+                    Bhutan
+                    </option><option class="txt dropdown" value="BVT">
+                    Bouvet Island
+                    </option><option class="txt dropdown" value="BWA">
+                    Botswana
+                    </option><option class="txt dropdown" value="CAF">
+                    Central African Republic
+                    </option><option class="txt dropdown" value="CAN">
+                    Canada
+                    </option><option class="txt dropdown" value="CCK">
+                    Cocos (Keeling) Islands
+                    </option><option class="txt dropdown" value="CHE">
+                    Switzerland
+                    </option><option class="txt dropdown" value="CHL">
+                    Chile
+                    </option><option class="txt dropdown" value="CHN">
+                    China
+                    </option><option class="txt dropdown" value="CIV">
+                    Cote d Ivoire
+                    </option><option class="txt dropdown" value="CMR">
+                    Cameroon
+                    </option><option class="txt dropdown" value="COD">
+                    Democratic Republic of the Congo
+                    </option><option class="txt dropdown" value="COG">
+                    Congo
+                    </option><option class="txt dropdown" value="COK">
+                    Cook Islands
+                    </option><option class="txt dropdown" value="COL">
+                    Colombia
+                    </option><option class="txt dropdown" value="COM">
+                    Comoros
+                    </option><option class="txt dropdown" value="CPV">
+                    Cape Verde
+                    </option><option class="txt dropdown" value="CRI">
+                    Costa Rica
+                    </option><option class="txt dropdown" value="CUB">
+                    Cuba
+                    </option><option class="txt dropdown" value="CUW">
+                    Curacao
+                    </option><option class="txt dropdown" value="CXR">
+                    Christmas Island
+                    </option><option class="txt dropdown" value="CYM">
+                    Cayman Islands
+                    </option><option class="txt dropdown" value="CYP">
+                    Cyprus
+                    </option><option class="txt dropdown" value="CZE">
+                    Czech Republic
+                    </option><option class="txt dropdown" value="DEU">
+                    Germany
+                    </option><option class="txt dropdown" value="DJI">
+                    Djibouti
+                    </option><option class="txt dropdown" value="DMA">
+                    Dominica
+                    </option><option class="txt dropdown" value="DNK">
+                    Denmark
+                    </option><option class="txt dropdown" value="DOM">
+                    Dominican Republic
+                    </option><option class="txt dropdown" value="DZA">
+                    Algeria
+                    </option><option class="txt dropdown" value="ECU">
+                    Ecuador
+                    </option><option class="txt dropdown" value="EGY">
+                    Egypt
+                    </option><option class="txt dropdown" value="ERI">
+                    Eritrea
+                    </option><option class="txt dropdown" value="ESH">
+                    Western Sahara
+                    </option><option class="txt dropdown" value="ESP">
+                    Spain
+                    </option><option class="txt dropdown" value="EST">
+                    Estonia
+                    </option><option class="txt dropdown" value="ETH">
+                    Ethiopia
+                    </option><option class="txt dropdown" value="FIN">
+                    Finland
+                    </option><option class="txt dropdown" value="FJI">
+                    Fiji
+                    </option><option class="txt dropdown" value="FLK">
+                    Falkland Islands (Malvinas)
+                    </option><option class="txt dropdown" value="FRA">
+                    France
+                    </option><option class="txt dropdown" value="FRO">
+                    Faroe Islands
+                    </option><option class="txt dropdown" value="FSM">
+                    Micronesia, Federated States of
+                    </option><option class="txt dropdown" value="GAB">
+                    Gabon
+                    </option><option class="txt dropdown" value="GBR">
+                    United Kingdom
+                    </option><option class="txt dropdown" value="GEO">
+                    Georgia
+                    </option><option class="txt dropdown" value="GGY">
+                    Guernsey
+                    </option><option class="txt dropdown" value="GHA">
+                    Ghana
+                    </option><option class="txt dropdown" value="GIB">
+                    Gibraltar
+                    </option><option class="txt dropdown" value="GIN">
+                    Guinea
+                    </option><option class="txt dropdown" value="GLP">
+                    Guadeloupe
+                    </option><option class="txt dropdown" value="GMB">
+                    Gambia
+                    </option><option class="txt dropdown" value="GNB">
+                    Guinea-Bissau
+                    </option><option class="txt dropdown" value="GNQ">
+                    Equatorial Guinea
+                    </option><option class="txt dropdown" value="GRC">
+                    Greece
+                    </option><option class="txt dropdown" value="GRD">
+                    Grenada
+                    </option><option class="txt dropdown" value="GRL">
+                    Greenland
+                    </option><option class="txt dropdown" value="GTM">
+                    Guatemala
+                    </option><option class="txt dropdown" value="GUF">
+                    French Guiana
+                    </option><option class="txt dropdown" value="GUM">
+                    Guam
+                    </option><option class="txt dropdown" value="GUY">
+                    Guyana
+                    </option><option class="txt dropdown" value="HKG">
+                    Hong Kong
+                    </option><option class="txt dropdown" value="HMD">
+                    Heard Island and McDonald&nbsp;Islands
+                    </option><option class="txt dropdown" value="HND">
+                    Honduras
+                    </option><option class="txt dropdown" value="HRV">
+                    Croatia
+                    </option><option class="txt dropdown" value="HTI">
+                    Haiti
+                    </option><option class="txt dropdown" value="HUN">
+                    Hungary
+                    </option><option class="txt dropdown" value="IDN">
+                    Indonesia
+                    </option><option class="txt dropdown" value="IMN">
+                    Isle of Man
+                    </option><option class="txt dropdown" value="IND">
+                    India
+                    </option><option class="txt dropdown" value="IOT">
+                    British Indian Ocean Territory
+                    </option><option class="txt dropdown" value="IRL">
+                    Ireland
+                    </option><option class="txt dropdown" value="IRN">
+                    Iran, Islamic Republic of
+                    </option><option class="txt dropdown" value="IRQ">
+                    Iraq
+                    </option><option class="txt dropdown" value="ISL">
+                    Iceland
+                    </option><option class="txt dropdown" value="ISR">
+                    Israel
+                    </option><option class="txt dropdown" value="ITA">
+                    Italy
+                    </option><option class="txt dropdown" value="JAM">
+                    Jamaica
+                    </option><option class="txt dropdown" value="JEY">
+                    Jersey
+                    </option><option class="txt dropdown" value="JOR">
+                    Jordan
+                    </option><option class="txt dropdown" value="JPN">
+                    Japan
+                    </option><option class="txt dropdown" value="KAZ">
+                    Kazakhstan
+                    </option><option class="txt dropdown" value="KEN">
+                    Kenya
+                    </option><option class="txt dropdown" value="KGZ">
+                    Kyrgyzstan
+                    </option><option class="txt dropdown" value="KHM">
+                    Cambodia
+                    </option><option class="txt dropdown" value="KIR">
+                    Kiribati
+                    </option><option class="txt dropdown" value="KNA">
+                    Saint Kitts and Nevis
+                    </option><option class="txt dropdown" value="KOR">
+                    Korea, Republic of
+                    </option><option class="txt dropdown" value="KWT">
+                    Kuwait
+                    </option><option class="txt dropdown" value="LAO">
+                    Lao Peoples Democratic Republic
+                    </option><option class="txt dropdown" value="LBN">
+                    Lebanon
+                    </option><option class="txt dropdown" value="LBR">
+                    Liberia
+                    </option><option class="txt dropdown" value="LBY">
+                    Libya
+                    </option><option class="txt dropdown" value="LCA">
+                    Saint Lucia
+                    </option><option class="txt dropdown" value="LIE">
+                    Liechtenstein
+                    </option><option class="txt dropdown" value="LKA">
+                    Sri Lanka
+                    </option><option class="txt dropdown" value="LSO">
+                    Lesotho
+                    </option><option class="txt dropdown" value="LTU">
+                    Lithuania
+                    </option><option class="txt dropdown" value="LUX">
+                    Luxembourg
+                    </option><option class="txt dropdown" value="LVA">
+                    Latvia
+                    </option><option class="txt dropdown" value="MAC">
+                    Macao
+                    </option><option class="txt dropdown" value="MAF">
+                    Saint Martin (French part)
+                    </option><option class="txt dropdown" value="MAR">
+                    Morocco
+                    </option><option class="txt dropdown" value="MCO">
+                    Monaco
+                    </option><option class="txt dropdown" value="MDA">
+                    Moldova, Republic of
+                    </option><option class="txt dropdown" value="MDG">
+                    Madagascar
+                    </option><option class="txt dropdown" value="MDV">
+                    Maldives
+                    </option><option class="txt dropdown" value="MEX">
+                    Mexico
+                    </option><option class="txt dropdown" value="MHL">
+                    Marshall Islands
+                    </option><option class="txt dropdown" value="MKD">
+                    Macedonia, the Former Yugoslav Republic of
+                    </option><option class="txt dropdown" value="MLI">
+                    Mali
+                    </option><option class="txt dropdown" value="MLT">
+                    Malta
+                    </option><option class="txt dropdown" value="MMR">
+                    Myanmar
+                    </option><option class="txt dropdown" value="MNE">
+                    Montenegro
+                    </option><option class="txt dropdown" value="MNG">
+                    Mongolia
+                    </option><option class="txt dropdown" value="MNP">
+                    Northern Mariana Islands
+                    </option><option class="txt dropdown" value="MOZ">
+                    Mozambique
+                    </option><option class="txt dropdown" value="MRT">
+                    Mauritania
+                    </option><option class="txt dropdown" value="MSR">
+                    Montserrat
+                    </option><option class="txt dropdown" value="MTQ">
+                    Martinique
+                    </option><option class="txt dropdown" value="MUS">
+                    Mauritius
+                    </option><option class="txt dropdown" value="MWI">
+                    Malawi
+                    </option><option class="txt dropdown" value="MYS">
+                    Malaysia
+                    </option><option class="txt dropdown" value="MYT">
+                    Mayotte
+                    </option><option class="txt dropdown" value="NAM">
+                    Namibia
+                    </option><option class="txt dropdown" value="NCL">
+                    New Caledonia
+                    </option><option class="txt dropdown" value="NER">
+                    Niger
+                    </option><option class="txt dropdown" value="NFK">
+                    Norfolk Island
+                    </option><option class="txt dropdown" value="NGA">
+                    Nigeria
+                    </option><option class="txt dropdown" value="NIC">
+                    Nicaragua
+                    </option><option class="txt dropdown" value="NIU">
+                    Niue
+                    </option><option class="txt dropdown" value="NLD">
+                    Netherlands
+                    </option><option class="txt dropdown" value="NOR">
+                    Norway
+                    </option><option class="txt dropdown" value="NPL">
+                    Nepal
+                    </option><option class="txt dropdown" value="NRU">
+                    Nauru
+                    </option><option class="txt dropdown" value="NZL">
+                    New Zealand
+                    </option><option class="txt dropdown" value="OMN">
+                    Oman
+                    </option><option class="txt dropdown" value="PAK">
+                    Pakistan
+                    </option><option class="txt dropdown" value="PAN">
+                    Panama
+                    </option><option class="txt dropdown" value="PCN">
+                    Pitcairn
+                    </option><option class="txt dropdown" value="PER">
+                    Peru
+                    </option><option class="txt dropdown" value="PHL">
+                    Philippines
+                    </option><option class="txt dropdown" value="PLW">
+                    Palau
+                    </option><option class="txt dropdown" value="PNG">
+                    Papua New Guinea
+                    </option><option class="txt dropdown" value="POL">
+                    Poland
+                    </option><option class="txt dropdown" value="PRI">
+                    Puerto Rico
+                    </option><option class="txt dropdown" value="PRK">
+                    Korea, Democratic Peoples Republic of
+                    </option><option class="txt dropdown" value="PRT">
+                    Portugal
+                    </option><option class="txt dropdown" value="PRY">
+                    Paraguay
+                    </option><option class="txt dropdown" value="PSE">
+                    Palestine, State of
+                    </option><option class="txt dropdown" value="PYF">
+                    French Polynesia
+                    </option><option class="txt dropdown" value="QAT">
+                    Qatar
+                    </option><option class="txt dropdown" value="REU">
+                    Reunion
+                    </option><option class="txt dropdown" value="ROU">
+                    Romania
+                    </option><option class="txt dropdown" value="RUS">
+                    Russian Federation
+                    </option><option class="txt dropdown" value="RWA">
+                    Rwanda
+                    </option><option class="txt dropdown" value="SAU">
+                    Saudi Arabia
+                    </option><option class="txt dropdown" value="SDN">
+                    Sudan
+                    </option><option class="txt dropdown" value="SEN">
+                    Senegal
+                    </option><option class="txt dropdown" value="SGP">
+                    Singapore
+                    </option><option class="txt dropdown" value="SGS">
+                    South Georgia and the South Sandwich Islands
+                    </option><option class="txt dropdown" value="SHN">
+                    Saint Helena
+                    </option><option class="txt dropdown" value="SJM">
+                    Svalbard and Jan Mayen
+                    </option><option class="txt dropdown" value="SLB">
+                    Solomon Islands
+                    </option><option class="txt dropdown" value="SLE">
+                    Sierra Leone
+                    </option><option class="txt dropdown" value="SLV">
+                    El Salvador
+                    </option><option class="txt dropdown" value="SMR">
+                    San Marino
+                    </option><option class="txt dropdown" value="SOM">
+                    Somalia
+                    </option><option class="txt dropdown" value="SPM">
+                    Saint Pierre and Miquelon
+                    </option><option class="txt dropdown" value="SRB">
+                    Serbia
+                    </option><option class="txt dropdown" value="SSD">
+                    South Sudan
+                    </option><option class="txt dropdown" value="STP">
+                    Sao Tome and Principe
+                    </option><option class="txt dropdown" value="SUR">
+                    Suriname
+                    </option><option class="txt dropdown" value="SVK">
+                    Slovakia
+                    </option><option class="txt dropdown" value="SVN">
+                    Slovenia
+                    </option><option class="txt dropdown" value="SWE">
+                    Sweden
+                    </option><option class="txt dropdown" value="SWZ">
+                    Swaziland
+                    </option><option class="txt dropdown" value="SXM">
+                    Sint Maarten (Dutch part)
+                    </option><option class="txt dropdown" value="SYC">
+                    Seychelles
+                    </option><option class="txt dropdown" value="SYR">
+                    Syrian Arab Republic
+                    </option><option class="txt dropdown" value="TCA">
+                    Turks and Caicos Islands
+                    </option><option class="txt dropdown" value="TCD">
+                    Chad
+                    </option><option class="txt dropdown" value="TGO">
+                    Togo
+                    </option><option class="txt dropdown" value="THA">
+                    Thailand
+                    </option><option class="txt dropdown" value="TJK">
+                    Tajikistan
+                    </option><option class="txt dropdown" value="TKL">
+                    Tokelau
+                    </option><option class="txt dropdown" value="TKM">
+                    Turkmenistan
+                    </option><option class="txt dropdown" value="TLS">
+                    Timor-Leste
+                    </option><option class="txt dropdown" value="TON">
+                    Tonga
+                    </option><option class="txt dropdown" value="TTO">
+                    Trinidad and Tobago
+                    </option><option class="txt dropdown" value="TUN">
+                    Tunisia
+                    </option><option class="txt dropdown" value="TUR">
+                    Turkey
+                    </option><option class="txt dropdown" value="TUV">
+                    Tuvalu
+                    </option><option class="txt dropdown" value="TWN">
+                    Taiwan
+                    </option><option class="txt dropdown" value="TZA">
+                    United Republic of Tanzania
+                    </option><option class="txt dropdown" value="UGA">
+                    Uganda
+                    </option><option class="txt dropdown" value="UKR">
+                    Ukraine
+                    </option><option class="txt dropdown" value="UMI">
+                    United States Minor Outlying Islands
+                    </option><option class="txt dropdown" value="URY">
+                    Uruguay
+                    </option><option class="txt dropdown" value="USA">
+                    United States
+                    </option><option class="txt dropdown" value="UZB">
+                    Uzbekistan
+                    </option><option class="txt dropdown" value="VAT">
+                    Holy See (Vatican City State)
+                    </option><option class="txt dropdown" value="VCT">
+                    Saint Vincent and the Grenadines
+                    </option><option class="txt dropdown" value="VEN">
+                    Venezuela
+                    </option><option class="txt dropdown" value="VGB">
+                    British Virgin Islands
+                    </option><option class="txt dropdown" value="VIR">
+                    US Virgin Islands
+                    </option><option class="txt dropdown" value="VNM">
+                    Viet Nam
+                    </option><option class="txt dropdown" value="VUT">
+                    Vanuatu
+                    </option><option class="txt dropdown" value="WLF">
+                    Wallis and Futuna
+                    </option><option class="txt dropdown" value="WSM">
+                    Samoa
+                    </option><option class="txt dropdown" value="YEM">
+                    Yemen
+                    </option><option class="txt dropdown" value="ZAF">
+                    South Africa
+                    </option><option class="txt dropdown" value="ZMB">
+                    Zambia
+                    </option><option class="txt dropdown" value="ZWE">
+                    Zimbabwe
+                    </option></select>
+    
+            <input type="text"  id="Limit AssignorPAN" placeholder="District"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+            <div class="row-txt">Date of AOR</div>
+            <input type="date"  id="Limit DateOfAOR" placeholder="mm/dd/yyyy"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false"> 
+    </div>
+
+    <div class="Invoice form" style="display: none;">
+        <div class="row-txt">Assignor Details</div> 
+        <input type="text" id="limitAssignorName" placeholder="Assignor Name"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        <select name="assignorcountry'" id="assignorcountry'" data-vv-as="Assignor Country" class="txt dropdown form-control" aria-required="true" aria-invalid="false" fdprocessedid="ip9ye"><option value="">Please Select One</option> <option class="txt dropdown" value="ABW">
+                Aruba
+                </option><option class="txt dropdown" value="AFG">
+                Afghanistan
+                </option><option class="txt dropdown" value="AGO">
+                Angola
+                </option><option class="txt dropdown" value="AIA">
+                Anguilla
+                </option><option class="txt dropdown" value="ALB">
+                Albania
+                </option><option class="txt dropdown" value="AND">
+                Andorra
+                </option><option class="txt dropdown" value="ARE">
+                United Arab Emirates
+                </option><option class="txt dropdown" value="ARG">
+                Argentina
+                </option><option class="txt dropdown" value="ARM">
+                Armenia
+                </option><option class="txt dropdown" value="ASM">
+                American Samoa
+                </option><option class="txt dropdown" value="ATA">
+                Antarctica
+                </option><option class="txt dropdown" value="ATF">
+                French Southern Territories
+                </option><option class="txt dropdown" value="ATG">
+                Antigua and Barbuda
+                </option><option class="txt dropdown" value="AUS">
+                Australia
+                </option><option class="txt dropdown" value="AUT">
+                Austria
+                </option><option class="txt dropdown" value="AZE">
+                Azerbaijan
+                </option><option class="txt dropdown" value="BDI">
+                Burundi
+                </option><option class="txt dropdown" value="BEL">
+                Belgium
+                </option><option class="txt dropdown" value="BEN">
+                Benin
+                </option><option class="txt dropdown" value="BES">
+                Bonaire
+                </option><option class="txt dropdown" value="BFA">
+                Burkina Faso
+                </option><option class="txt dropdown" value="BGD">
+                Bangladesh
+                </option><option class="txt dropdown" value="BGR">
+                Bulgaria
+                </option><option class="txt dropdown" value="BHR">
+                Bahrain
+                </option><option class="txt dropdown" value="BHS">
+                Bahamas
+                </option><option class="txt dropdown" value="BIH">
+                Bosnia and Herzegovina
+                </option><option class="txt dropdown" value="BLM">
+                Saint Barthelemy
+                </option><option class="txt dropdown" value="BLR">
+                Belarus
+                </option><option class="txt dropdown" value="BLZ">
+                Belize
+                </option><option class="txt dropdown" value="BMU">
+                Bermuda
+                </option><option class="txt dropdown" value="BOL">
+                Bolivia
+                </option><option class="txt dropdown" value="BRA">
+                Brazil
+                </option><option class="txt dropdown" value="BRB">
+                Barbados
+                </option><option class="txt dropdown" value="BRN">
+                Brunei Darussalam
+                </option><option class="txt dropdown" value="BTN">
+                Bhutan
+                </option><option class="txt dropdown" value="BVT">
+                Bouvet Island
+                </option><option class="txt dropdown" value="BWA">
+                Botswana
+                </option><option class="txt dropdown" value="CAF">
+                Central African Republic
+                </option><option class="txt dropdown" value="CAN">
+                Canada
+                </option><option class="txt dropdown" value="CCK">
+                Cocos (Keeling) Islands
+                </option><option class="txt dropdown" value="CHE">
+                Switzerland
+                </option><option class="txt dropdown" value="CHL">
+                Chile
+                </option><option class="txt dropdown" value="CHN">
+                China
+                </option><option class="txt dropdown" value="CIV">
+                Cote d Ivoire
+                </option><option class="txt dropdown" value="CMR">
+                Cameroon
+                </option><option class="txt dropdown" value="COD">
+                Democratic Republic of the Congo
+                </option><option class="txt dropdown" value="COG">
+                Congo
+                </option><option class="txt dropdown" value="COK">
+                Cook Islands
+                </option><option class="txt dropdown" value="COL">
+                Colombia
+                </option><option class="txt dropdown" value="COM">
+                Comoros
+                </option><option class="txt dropdown" value="CPV">
+                Cape Verde
+                </option><option class="txt dropdown" value="CRI">
+                Costa Rica
+                </option><option class="txt dropdown" value="CUB">
+                Cuba
+                </option><option class="txt dropdown" value="CUW">
+                Curacao
+                </option><option class="txt dropdown" value="CXR">
+                Christmas Island
+                </option><option class="txt dropdown" value="CYM">
+                Cayman Islands
+                </option><option class="txt dropdown" value="CYP">
+                Cyprus
+                </option><option class="txt dropdown" value="CZE">
+                Czech Republic
+                </option><option class="txt dropdown" value="DEU">
+                Germany
+                </option><option class="txt dropdown" value="DJI">
+                Djibouti
+                </option><option class="txt dropdown" value="DMA">
+                Dominica
+                </option><option class="txt dropdown" value="DNK">
+                Denmark
+                </option><option class="txt dropdown" value="DOM">
+                Dominican Republic
+                </option><option class="txt dropdown" value="DZA">
+                Algeria
+                </option><option class="txt dropdown" value="ECU">
+                Ecuador
+                </option><option class="txt dropdown" value="EGY">
+                Egypt
+                </option><option class="txt dropdown" value="ERI">
+                Eritrea
+                </option><option class="txt dropdown" value="ESH">
+                Western Sahara
+                </option><option class="txt dropdown" value="ESP">
+                Spain
+                </option><option class="txt dropdown" value="EST">
+                Estonia
+                </option><option class="txt dropdown" value="ETH">
+                Ethiopia
+                </option><option class="txt dropdown" value="FIN">
+                Finland
+                </option><option class="txt dropdown" value="FJI">
+                Fiji
+                </option><option class="txt dropdown" value="FLK">
+                Falkland Islands (Malvinas)
+                </option><option class="txt dropdown" value="FRA">
+                France
+                </option><option class="txt dropdown" value="FRO">
+                Faroe Islands
+                </option><option class="txt dropdown" value="FSM">
+                Micronesia, Federated States of
+                </option><option class="txt dropdown" value="GAB">
+                Gabon
+                </option><option class="txt dropdown" value="GBR">
+                United Kingdom
+                </option><option class="txt dropdown" value="GEO">
+                Georgia
+                </option><option class="txt dropdown" value="GGY">
+                Guernsey
+                </option><option class="txt dropdown" value="GHA">
+                Ghana
+                </option><option class="txt dropdown" value="GIB">
+                Gibraltar
+                </option><option class="txt dropdown" value="GIN">
+                Guinea
+                </option><option class="txt dropdown" value="GLP">
+                Guadeloupe
+                </option><option class="txt dropdown" value="GMB">
+                Gambia
+                </option><option class="txt dropdown" value="GNB">
+                Guinea-Bissau
+                </option><option class="txt dropdown" value="GNQ">
+                Equatorial Guinea
+                </option><option class="txt dropdown" value="GRC">
+                Greece
+                </option><option class="txt dropdown" value="GRD">
+                Grenada
+                </option><option class="txt dropdown" value="GRL">
+                Greenland
+                </option><option class="txt dropdown" value="GTM">
+                Guatemala
+                </option><option class="txt dropdown" value="GUF">
+                French Guiana
+                </option><option class="txt dropdown" value="GUM">
+                Guam
+                </option><option class="txt dropdown" value="GUY">
+                Guyana
+                </option><option class="txt dropdown" value="HKG">
+                Hong Kong
+                </option><option class="txt dropdown" value="HMD">
+                Heard Island and McDonald&nbsp;Islands
+                </option><option class="txt dropdown" value="HND">
+                Honduras
+                </option><option class="txt dropdown" value="HRV">
+                Croatia
+                </option><option class="txt dropdown" value="HTI">
+                Haiti
+                </option><option class="txt dropdown" value="HUN">
+                Hungary
+                </option><option class="txt dropdown" value="IDN">
+                Indonesia
+                </option><option class="txt dropdown" value="IMN">
+                Isle of Man
+                </option><option class="txt dropdown" value="IND">
+                India
+                </option><option class="txt dropdown" value="IOT">
+                British Indian Ocean Territory
+                </option><option class="txt dropdown" value="IRL">
+                Ireland
+                </option><option class="txt dropdown" value="IRN">
+                Iran, Islamic Republic of
+                </option><option class="txt dropdown" value="IRQ">
+                Iraq
+                </option><option class="txt dropdown" value="ISL">
+                Iceland
+                </option><option class="txt dropdown" value="ISR">
+                Israel
+                </option><option class="txt dropdown" value="ITA">
+                Italy
+                </option><option class="txt dropdown" value="JAM">
+                Jamaica
+                </option><option class="txt dropdown" value="JEY">
+                Jersey
+                </option><option class="txt dropdown" value="JOR">
+                Jordan
+                </option><option class="txt dropdown" value="JPN">
+                Japan
+                </option><option class="txt dropdown" value="KAZ">
+                Kazakhstan
+                </option><option class="txt dropdown" value="KEN">
+                Kenya
+                </option><option class="txt dropdown" value="KGZ">
+                Kyrgyzstan
+                </option><option class="txt dropdown" value="KHM">
+                Cambodia
+                </option><option class="txt dropdown" value="KIR">
+                Kiribati
+                </option><option class="txt dropdown" value="KNA">
+                Saint Kitts and Nevis
+                </option><option class="txt dropdown" value="KOR">
+                Korea, Republic of
+                </option><option class="txt dropdown" value="KWT">
+                Kuwait
+                </option><option class="txt dropdown" value="LAO">
+                Lao Peoples Democratic Republic
+                </option><option class="txt dropdown" value="LBN">
+                Lebanon
+                </option><option class="txt dropdown" value="LBR">
+                Liberia
+                </option><option class="txt dropdown" value="LBY">
+                Libya
+                </option><option class="txt dropdown" value="LCA">
+                Saint Lucia
+                </option><option class="txt dropdown" value="LIE">
+                Liechtenstein
+                </option><option class="txt dropdown" value="LKA">
+                Sri Lanka
+                </option><option class="txt dropdown" value="LSO">
+                Lesotho
+                </option><option class="txt dropdown" value="LTU">
+                Lithuania
+                </option><option class="txt dropdown" value="LUX">
+                Luxembourg
+                </option><option class="txt dropdown" value="LVA">
+                Latvia
+                </option><option class="txt dropdown" value="MAC">
+                Macao
+                </option><option class="txt dropdown" value="MAF">
+                Saint Martin (French part)
+                </option><option class="txt dropdown" value="MAR">
+                Morocco
+                </option><option class="txt dropdown" value="MCO">
+                Monaco
+                </option><option class="txt dropdown" value="MDA">
+                Moldova, Republic of
+                </option><option class="txt dropdown" value="MDG">
+                Madagascar
+                </option><option class="txt dropdown" value="MDV">
+                Maldives
+                </option><option class="txt dropdown" value="MEX">
+                Mexico
+                </option><option class="txt dropdown" value="MHL">
+                Marshall Islands
+                </option><option class="txt dropdown" value="MKD">
+                Macedonia, the Former Yugoslav Republic of
+                </option><option class="txt dropdown" value="MLI">
+                Mali
+                </option><option class="txt dropdown" value="MLT">
+                Malta
+                </option><option class="txt dropdown" value="MMR">
+                Myanmar
+                </option><option class="txt dropdown" value="MNE">
+                Montenegro
+                </option><option class="txt dropdown" value="MNG">
+                Mongolia
+                </option><option class="txt dropdown" value="MNP">
+                Northern Mariana Islands
+                </option><option class="txt dropdown" value="MOZ">
+                Mozambique
+                </option><option class="txt dropdown" value="MRT">
+                Mauritania
+                </option><option class="txt dropdown" value="MSR">
+                Montserrat
+                </option><option class="txt dropdown" value="MTQ">
+                Martinique
+                </option><option class="txt dropdown" value="MUS">
+                Mauritius
+                </option><option class="txt dropdown" value="MWI">
+                Malawi
+                </option><option class="txt dropdown" value="MYS">
+                Malaysia
+                </option><option class="txt dropdown" value="MYT">
+                Mayotte
+                </option><option class="txt dropdown" value="NAM">
+                Namibia
+                </option><option class="txt dropdown" value="NCL">
+                New Caledonia
+                </option><option class="txt dropdown" value="NER">
+                Niger
+                </option><option class="txt dropdown" value="NFK">
+                Norfolk Island
+                </option><option class="txt dropdown" value="NGA">
+                Nigeria
+                </option><option class="txt dropdown" value="NIC">
+                Nicaragua
+                </option><option class="txt dropdown" value="NIU">
+                Niue
+                </option><option class="txt dropdown" value="NLD">
+                Netherlands
+                </option><option class="txt dropdown" value="NOR">
+                Norway
+                </option><option class="txt dropdown" value="NPL">
+                Nepal
+                </option><option class="txt dropdown" value="NRU">
+                Nauru
+                </option><option class="txt dropdown" value="NZL">
+                New Zealand
+                </option><option class="txt dropdown" value="OMN">
+                Oman
+                </option><option class="txt dropdown" value="PAK">
+                Pakistan
+                </option><option class="txt dropdown" value="PAN">
+                Panama
+                </option><option class="txt dropdown" value="PCN">
+                Pitcairn
+                </option><option class="txt dropdown" value="PER">
+                Peru
+                </option><option class="txt dropdown" value="PHL">
+                Philippines
+                </option><option class="txt dropdown" value="PLW">
+                Palau
+                </option><option class="txt dropdown" value="PNG">
+                Papua New Guinea
+                </option><option class="txt dropdown" value="POL">
+                Poland
+                </option><option class="txt dropdown" value="PRI">
+                Puerto Rico
+                </option><option class="txt dropdown" value="PRK">
+                Korea, Democratic Peoples Republic of
+                </option><option class="txt dropdown" value="PRT">
+                Portugal
+                </option><option class="txt dropdown" value="PRY">
+                Paraguay
+                </option><option class="txt dropdown" value="PSE">
+                Palestine, State of
+                </option><option class="txt dropdown" value="PYF">
+                French Polynesia
+                </option><option class="txt dropdown" value="QAT">
+                Qatar
+                </option><option class="txt dropdown" value="REU">
+                Reunion
+                </option><option class="txt dropdown" value="ROU">
+                Romania
+                </option><option class="txt dropdown" value="RUS">
+                Russian Federation
+                </option><option class="txt dropdown" value="RWA">
+                Rwanda
+                </option><option class="txt dropdown" value="SAU">
+                Saudi Arabia
+                </option><option class="txt dropdown" value="SDN">
+                Sudan
+                </option><option class="txt dropdown" value="SEN">
+                Senegal
+                </option><option class="txt dropdown" value="SGP">
+                Singapore
+                </option><option class="txt dropdown" value="SGS">
+                South Georgia and the South Sandwich Islands
+                </option><option class="txt dropdown" value="SHN">
+                Saint Helena
+                </option><option class="txt dropdown" value="SJM">
+                Svalbard and Jan Mayen
+                </option><option class="txt dropdown" value="SLB">
+                Solomon Islands
+                </option><option class="txt dropdown" value="SLE">
+                Sierra Leone
+                </option><option class="txt dropdown" value="SLV">
+                El Salvador
+                </option><option class="txt dropdown" value="SMR">
+                San Marino
+                </option><option class="txt dropdown" value="SOM">
+                Somalia
+                </option><option class="txt dropdown" value="SPM">
+                Saint Pierre and Miquelon
+                </option><option class="txt dropdown" value="SRB">
+                Serbia
+                </option><option class="txt dropdown" value="SSD">
+                South Sudan
+                </option><option class="txt dropdown" value="STP">
+                Sao Tome and Principe
+                </option><option class="txt dropdown" value="SUR">
+                Suriname
+                </option><option class="txt dropdown" value="SVK">
+                Slovakia
+                </option><option class="txt dropdown" value="SVN">
+                Slovenia
+                </option><option class="txt dropdown" value="SWE">
+                Sweden
+                </option><option class="txt dropdown" value="SWZ">
+                Swaziland
+                </option><option class="txt dropdown" value="SXM">
+                Sint Maarten (Dutch part)
+                </option><option class="txt dropdown" value="SYC">
+                Seychelles
+                </option><option class="txt dropdown" value="SYR">
+                Syrian Arab Republic
+                </option><option class="txt dropdown" value="TCA">
+                Turks and Caicos Islands
+                </option><option class="txt dropdown" value="TCD">
+                Chad
+                </option><option class="txt dropdown" value="TGO">
+                Togo
+                </option><option class="txt dropdown" value="THA">
+                Thailand
+                </option><option class="txt dropdown" value="TJK">
+                Tajikistan
+                </option><option class="txt dropdown" value="TKL">
+                Tokelau
+                </option><option class="txt dropdown" value="TKM">
+                Turkmenistan
+                </option><option class="txt dropdown" value="TLS">
+                Timor-Leste
+                </option><option class="txt dropdown" value="TON">
+                Tonga
+                </option><option class="txt dropdown" value="TTO">
+                Trinidad and Tobago
+                </option><option class="txt dropdown" value="TUN">
+                Tunisia
+                </option><option class="txt dropdown" value="TUR">
+                Turkey
+                </option><option class="txt dropdown" value="TUV">
+                Tuvalu
+                </option><option class="txt dropdown" value="TWN">
+                Taiwan
+                </option><option class="txt dropdown" value="TZA">
+                United Republic of Tanzania
+                </option><option class="txt dropdown" value="UGA">
+                Uganda
+                </option><option class="txt dropdown" value="UKR">
+                Ukraine
+                </option><option class="txt dropdown" value="UMI">
+                United States Minor Outlying Islands
+                </option><option class="txt dropdown" value="URY">
+                Uruguay
+                </option><option class="txt dropdown" value="USA">
+                United States
+                </option><option class="txt dropdown" value="UZB">
+                Uzbekistan
+                </option><option class="txt dropdown" value="VAT">
+                Holy See (Vatican City State)
+                </option><option class="txt dropdown" value="VCT">
+                Saint Vincent and the Grenadines
+                </option><option class="txt dropdown" value="VEN">
+                Venezuela
+                </option><option class="txt dropdown" value="VGB">
+                British Virgin Islands
+                </option><option class="txt dropdown" value="VIR">
+                US Virgin Islands
+                </option><option class="txt dropdown" value="VNM">
+                Viet Nam
+                </option><option class="txt dropdown" value="VUT">
+                Vanuatu
+                </option><option class="txt dropdown" value="WLF">
+                Wallis and Futuna
+                </option><option class="txt dropdown" value="WSM">
+                Samoa
+                </option><option class="txt dropdown" value="YEM">
+                Yemen
+                </option><option class="txt dropdown" value="ZAF">
+                South Africa
+                </option><option class="txt dropdown" value="ZMB">
+                Zambia
+                </option><option class="txt dropdown" value="ZWE">
+                Zimbabwe
+                </option></select>
+
+        <input type="text"  id="Limit AssignorPAN" placeholder="District"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+        <div class="row-txt">Date of AOR</div>
+        <input type="date"  id="Limit DateOfAOR" placeholder="Date of AOR mm/dd/yyyy"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false"> 
+        <div class="row-txt">Invoice Date</div>
+        <input type="date"  id="Limit InvoiceDate" placeholder="Invoice Date mm/dd/yyyy"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false"> 
+        <input type="text"  id="Limit InvoiceNo" placeholder="Invoice No."  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+ 
+    </div>
+        
+</div>
+    
+    <div class="form">    
+        <label class="row-txt">Captcha</label> 
+            <input type="text" name="jcaptcha" id="jcaptcha" data-vv-as="Captcha" placeholder="Captcha" autocomplete="off" class="form-control" aria-required="true" aria-invalid="false">
+            <button disabled="disabled" class="captchaSubmit">Submit</button>
+    </div>
+    <footer class="day-head" id="footer">
+        <div class="contact" data-translate="contact">
+            Some kind of contact information
+        </div>
+    </footer>
+    <script>
+        const aorCategorySelect = document.getElementById('aorCategory');
+        const limitCategoryDiv = document.querySelector('.Limit');
+        const invoiceCategoryDiv = document.querySelector('.Invoice');
+        aorCategorySelect.addEventListener('change', () => {
+            if (aorCategorySelect.value === '1') { // Value "1" represents "Immovable"
+                limitCategoryDiv.style.display = 'flex';
+            }else{
+                limitCategoryDiv.style.display = 'none';
+            }if (aorCategorySelect.value === '2' || aorCategorySelect.value === '3'){ // Value "1" represents "Immovable"
+                invoiceCategoryDiv.style.display = 'flex';
+            }else{
+                invoiceCategoryDiv.style.display = 'none';
+            }
+        });
+        let dropdownOpen = false;
+        let currentLanguage = 'en'; // Default language
+        //let currentMode = 'day-mode'
+        update();
+        if(localStorage.getItem("currentMode")==="day-mode"){
+            localStorage.setItem("currentMode", "day-mode");
+        }
+        let iconChanged = false;
+        const specifiedElement = document.getElementById('dropdown')
+        document.addEventListener('click', event => {
+            const isClickInside = specifiedElement.contains(event.target)
+            if (!isClickInside) {
+                if(dropdownOpen){
+                    dropdownOpen = !dropdownOpen;
+                    dropdown.classList.toggle('active', dropdownOpen);
+                }
+            }
+        })
+            function changeIcon() {
+                const iconElement = document.getElementById('icon');
+                if (iconChanged) {
+                    iconElement.textContent = 'notifications';
+                } else {
+                    iconElement.textContent = 'notifications_active'; 
+                }
+                iconChanged = !iconChanged;
+            }
+        const translations = {
+            en: {
+                fullForm: "Central Registry of Securitisation Asset Reconstruction and Security Interest of India",
+                Asset: "Asset Based Search",
+                Debtor: "Debtor Based Search",
+                AOR: "AOR Based Search",
+                Report: "Search Report",
+            },
+            hn: {
+                fullForm: "भारतीय प्रतिभूतिकरण परिसंपत्ति पुनर्निर्माण और प्रति‍भूति स्वत्व की केंद्रीय रजिस्ट्री",
+                Asset: "संपत्ति आधारित  अन्वेषण",
+                Debtor: "देनदार आधारित  अन्वेषण",
+                AOR: "समनुदेशन आधारित  अन्वेषण",
+                Report: "अन्वेषण रिपोर्ट",
+            },
+        };
+            function toggleDropdown() {
+              dropdownOpen = !dropdownOpen;
+              const dropdown = document.getElementById('dropdown');
+              dropdown.classList.toggle('active', dropdownOpen);
+            }
+    
+          
+            function toggleLanguage() {
+                if(currentLanguage === "hn"){
+                    document.getElementById("language").textContent = "हिंदी";
+                }else{
+                    document.getElementById("language").textContent = "English";
+                }
+                currentLanguage = currentLanguage === 'en' ? 'hn' : 'en';
+                translateElements();
+            }
+          
+            function update(){
+                var currentMode = localStorage.getItem("currentMode");
+                if(currentMode === "day-mode"){
+                    document.getElementById("mode").textContent = "dark_mode";
+                }else{
+                    document.getElementById("mode").textContent = "light_mode";
+                }
+                document.body.classList.toggle('night-mode', currentMode === 'night-mode');
+                document.body.classList.toggle('day-mode', currentMode === 'day-mode');
+                document.getElementById('header').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('header').classList.toggle('day-head', currentMode === 'day-mode');
+                document.getElementById('footer').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('footer').classList.toggle('day-head', currentMode === 'day-mode');
+    
+                Array.from(document.getElementsByClassName('page-link')).forEach((link) => {
+                    link.classList.toggle('night-link', currentMode === 'night-mode');
+                    link.classList.toggle('day-link', currentMode === 'day-mode');
+                });
+            }
+            function toggleMode() {
+                var currentMode = localStorage.getItem("currentMode");
+                if(currentMode === "day-mode"){
+                    document.getElementById("mode").textContent = "light_mode";
+                }else{
+                    document.getElementById("mode").textContent = "dark_mode";
+                }
+                localStorage.setItem("currentMode",currentMode === 'day-mode' ? 'night-mode' : 'day-mode');
+                currentMode = localStorage.getItem("currentMode");
+                document.body.classList.toggle('night-mode', currentMode === 'night-mode');
+                document.body.classList.toggle('day-mode', currentMode === 'day-mode');
+                document.getElementById('header').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('header').classList.toggle('day-head', currentMode === 'day-mode');
+                document.getElementById('footer').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('footer').classList.toggle('day-head', currentMode === 'day-mode');
+    
+                Array.from(document.getElementsByClassName('page-link')).forEach((link) => {
+                    link.classList.toggle('night-link', currentMode === 'night-mode');
+                    link.classList.toggle('day-link', currentMode === 'day-mode');
+                });
+            }
+      
+            function showModal() {
+                const modalElement = document.getElementById('modal');
+                modalElement.classList.add('active');
+            }
+    
+            function dismissModal() {
+                const modalElement = document.getElementById('modal');
+                modalElement.classList.remove('active');
+                changeIcon();
+            }
+    
+            function translateElements() {
+                const elementsToTranslate = document.querySelectorAll('[data-translate]');
+                elementsToTranslate.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                });
+            }
+    
+          </script>
+</body>
+
+
+</html>

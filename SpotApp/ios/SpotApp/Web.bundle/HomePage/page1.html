@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile-Specific Webpage</title>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body class="day-mode">
+    <header class="day-head" id="header">
+
+        <div class="header-container-first">
+            <a href="./home.html" class="logo"><img src="../Assets/cersai_logo.png" alt="Logo"></a>
+            <div class="title">CERSAI</div>
+        <div class="dropdown" id="dropdown">
+            <div class="settings" onclick="toggleDropdown()">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </div>
+            <div class="dropdown-content" on>
+                <a href="#" onclick="toggleLanguage()" id="language">हिंदी</a>
+                <a href="#" onclick="toggleMode()"><span class="material-symbols-outlined" id="mode">
+                    light_mode
+                    </span></a>
+            </div>
+        </div>
+        
+        <div class="notif" onclick="changeIcon(); showModal()" >            
+            <span id="icon" class="material-symbols-outlined">
+                notifications
+            </span>
+        </div>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+              <p>This is a notification pop-up.</p>
+              <button onclick="dismissModal()">Dismiss</button>
+            </div>
+        </div>
+        </div>
+
+        <div class="full-form" data-translate="fullForm">
+            Central Registry of Securitisation Asset
+            Reconstruction and Security Interest of India
+        </div>
+    </header>
+    <h1 style="color:  #047a45; text-align: center; margin: 10px;">Asset Based Search</h1>
+        <div class="Asset-Category form">
+            <div class="row-txt">Asset Category</div> 
+        <select id="assetCategory"  class="form-dropdown" aria-required="true" aria-invalid="false">
+            <option value="0">
+                Please Select One
+            </option> 
+            <option value="1">
+		    Immovable
+		    </option>
+            <option  value="2">
+		    Movable
+		    </option>
+            <option  value="3">
+		    Intangible
+		    </option>
+        </select>
+    </div>
+
+    <div class="Immovable-Category form" style="display: none;">
+        <div class="row-txt">Immovable Category</div>
+        <select  id="assetType" class="form-dropdown" aria-required="true" aria-invalid="false">
+            <option value="">
+                Please Select One
+            </option> 
+            <option value="1">
+		        Residential
+		    </option>
+            <option  value="2">
+		        Commercial
+		    </option>
+            <option value="3">
+		        Others
+		    </option>
+        </select> 
+    <br>
+    <label class="mandatory" style="color: rgb(0, 153, 76);">Its Mandatory To Fill Atleast One Of Survey Number / Municipal Number , Plot Number And House / Flat Number</label> 
+    <br>  
+            <div class="row-txt">Immovable Details</div> 
+            <input type="text" name="Survey Number" id="Survey Number" placeholder="Survey Number / Municipal Number (Comma will be treated as a separator)" data-vv-as="Survey Number / Municipal Number (Comma will be treated as a separator)" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            <input type="text" name="Plot Number" id="Plot Number" placeholder="Plot Number" data-vv-as="Plot Number" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            <input type="text" name="House / Flat Number" id="House / Flat Number" placeholder="House/ Flat Number" data-vv-as="House/ Flat Number" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+              <label for="Floor No" class="txt row-txt">Address</label> 
+            <select name="Floor No" id="Floor No" data-vv-as="Floor No." class="txt dropdown form-control" aria-required="false" aria-invalid="false">
+                <option value="">Please Select One</option> 
+                <option class="txt dropdown" value="-3">
+		        -3
+		        </option><option class="txt dropdown" value="-2">
+		        -2
+		        </option><option class="txt dropdown" value="-1">
+		        -1
+		        </option><option class="txt dropdown" value="0">
+		        0
+		        </option><option class="txt dropdown" value="1">
+		        1
+		        </option><option class="txt dropdown" value="2">
+		        2
+		        </option><option class="txt dropdown" value="3">
+		        3
+		        </option><option class="txt dropdown" value="4">
+		        4
+		        </option><option class="txt dropdown" value="5">
+		        5
+		        </option><option class="txt dropdown" value="6">
+		        6
+		        </option>
+            </select> 
+            <input type="text" name="Building Number" id="Building Number" placeholder="Building (/ Tower) Name / Number" data-vv-as="Building (/ Tower) Name / Number" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" name="Name of the Project" id="Name of the Project" placeholder="Name of the Project / Scheme / Society" data-vv-as="Name of the Project / Scheme / Society" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" name="Street Number" id="Street Number" placeholder="Street Name / Number" data-vv-as="Street Name / Number" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            <input type="text" name="Pocket" id="Pocket" placeholder="Pocket" data-vv-as="Pocket" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            <input type="text" name="Locality / Sector" id="Locality / Sector" placeholder="Locality/ Sector" data-vv-as="Locality/ Sector" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <select name="immovableAssetAddress state" id="immovableAssetAddress state" data-vv-as="State" class="txt dropdown form-control" aria-required="true" aria-invalid="true">
+                <option value="">Please Select One</option> <option class="txt dropdown" value="Andaman And Nicobar Islands">
+		Andaman And Nicobar Islands
+		</option><option class="txt dropdown" value="Andhra Pradesh">
+		Andhra Pradesh
+		</option><option class="txt dropdown" value="Arunachal Pradesh">
+		Arunachal Pradesh
+		</option><option class="txt dropdown" value="Assam">
+		Assam
+		</option><option class="txt dropdown" value="Bihar">
+		Bihar
+		</option><option class="txt dropdown" value="Chandigarh">
+		Chandigarh
+		</option><option class="txt dropdown" value="Chattisgarh">
+		Chattisgarh
+		</option><option class="txt dropdown" value="Dadra And Nagar Haveli">
+		Dadra And Nagar Haveli
+		</option><option class="txt dropdown" value="Daman And Diu">
+		Daman And Diu
+		</option><option class="txt dropdown" value="Delhi">
+		Delhi
+		</option><option class="txt dropdown" value="Goa">
+		Goa
+		</option><option class="txt dropdown" value="Gujarat">
+		Gujarat
+		</option><option class="txt dropdown" value="Haryana">
+		Haryana
+		</option><option class="txt dropdown" value="Himachal Pradesh">
+		Himachal Pradesh
+		</option><option class="txt dropdown" value="Jammu And Kashmir">
+		Jammu And Kashmir
+		</option><option class="txt dropdown" value="Jharkhand">
+		Jharkhand
+		</option><option class="txt dropdown" value="Karnataka">
+		Karnataka
+		</option><option class="txt dropdown" value="Kerala">
+		Kerala
+		</option><option class="txt dropdown" value="Lakshadweep">
+		Lakshadweep
+		</option><option class="txt dropdown" value="Madhya Pradesh">
+		Madhya Pradesh
+		</option><option class="txt dropdown" value="Maharashtra">
+		Maharashtra
+		</option><option class="txt dropdown" value="Manipur">
+		Manipur
+		</option><option class="txt dropdown" value="Meghalaya">
+		Meghalaya
+		</option><option class="txt dropdown" value="Mizoram">
+		Mizoram
+		</option><option class="txt dropdown" value="Nagaland">
+		Nagaland
+		</option><option class="txt dropdown" value="Odisha">
+		Odisha
+		</option><option class="txt dropdown" value="Pondicherry">
+		Pondicherry
+		</option><option class="txt dropdown" value="Punjab">
+		Punjab
+		</option><option class="txt dropdown" value="Rajasthan">
+		Rajasthan
+		</option><option class="txt dropdown" value="Sikkim">
+		Sikkim
+		</option><option class="txt dropdown" value="Tamil Nadu">
+		Tamil Nadu
+		</option><option class="txt dropdown" value="Tripura">
+		Tripura
+		</option><option class="txt dropdown" value="Uttar Pradesh">
+		Uttar Pradesh
+		</option><option class="txt dropdown" value="Uttarakhand">
+		Uttarakhand
+		</option><option class="txt dropdown" value="West Bengal">
+		West Bengal
+		</option><option class="txt dropdown" value="Telangana">
+		Telangana
+		</option></select> 
+
+        <input type="text" name="immovableAssetAddress districtName" id="immovableAssetAddress districtName" placeholder="District" data-vv-as="District" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+        <input type="text" name="immovableAssetAddress citytown" id="immovableAssetAddress citytown" placeholder="City / Town / Village" data-vv-as="City / Town / Village" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false"> 
+        <input type="text" name="immovableAssetAddress pincode" id="immovableAssetAddress pincode" placeholder="Pin Code" data-vv-as="Pin Code" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+             
+    </div>
+    <div class="Movable-Category form" style="display: none;">
+            <label for="assetType" class="txt row-txt">Movable Category</label>
+            <select name="assetType" id="movableAssetType" data-vv-as="Immovable Category" class="txt dropdown form-control" aria-required="true" aria-invalid="false">
+                <option value="">Please Select One</option> 
+                <option class="txt dropdown" value="1">
+                    Vehicle
+                </option>
+                <option class="txt dropdown" value="2">
+                    Equipment & Machinery
+                </option>
+                <option class="txt dropdown" value="3">
+                    Inventory (incl. Receivables)
+                </option>
+                <option class="txt dropdown" value="4">
+                    Others
+                </option>
+            </select>
+             
+            <div class="Vehicle form" style="display: none;">
+                <label for="assetType" class="txt row-txt">Type of Vehicle</label>
+                <select name="assetType" id="vehicleType" data-vv-as="Immovable Category" class="txt dropdown form-control" aria-required="true" aria-invalid="false">
+                    <option value="">Please Select One</option> 
+                    <option class="txt dropdown" value="1">
+                        Two-Wheeler
+                    </option>
+                    <option class="txt dropdown" value="2">
+                        Three-Wheeler
+                    </option>
+                    <option class="txt dropdown" value="3">
+                        Inventory (incl. Receivables)
+                    </option>
+                    <option class="txt dropdown" value="4">
+                        Car, Jeep, Van
+                    </option>
+                    <option class="txt dropdown" value="5">
+                        LCV/Minibus
+                    </option>
+                    <option class="txt dropdown" value="6">
+                        Bus/Truck
+                    </option>
+                    <option class="txt dropdown" value="7">
+                        Multi-Axle Vehicle
+                    </option>
+                    <option class="txt dropdown" value="8">
+                        Ship
+                    </option>
+                    <option class="txt dropdown" value="9">
+                        Yacht
+                    </option>
+                    <option class="txt dropdown" value="10">
+                        Aircraft
+                    </option>
+                    <option class="txt dropdown" value="11">
+                        Others
+                    </option>
+                </select>
+                <div class="NotShip form" style="display: none;">
+                    <label class="row-txt">Vehicle Details</label>
+    		<!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                </div>
+                <div class="Ship form" style="display: none;">
+                    <label for="ShipName" class="txt row-txt">Ship Details</label> 
+                    <!----> <input type="text" id="ShipName" placeholder="ShipName"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+                    <input type="text" id="IMO" placeholder="IMO"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+                    <input type="text" id="MMSI" placeholder="MMSI"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">        
+                </div> 
+            </div>
+            <div class="Equipment form" style="display: none;">
+                <div class="row-txt">Equipment and Machinery Details</div> 
+                <input type="text" id="Make" placeholder="Make"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                <input type="text"  id="Model" placeholder="Model" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                <br>
+                <label class="mandatory" style="color: rgb(0, 153, 76);">Its Mandatory To Fill Atleast One Of Serial Number of E & M and Description Of Asset</label> 
+                <br>  
+                <div class="row-txt">Equipment and Machinery Description</div> 
+                <input type="text"  id="Serial Number of E & M" placeholder="Serial Number of E & M" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                <input type="text"  id="Description of the Asset" placeholder="Description of the Asset" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+            </div>
+            <div class="Inventory form" style="display: none;">
+                <div class="row-txt">Asset Details</div> 
+                <input type="text" id="Asset Description" placeholder="Description of the Asset"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                <input type="text"  id="Identification Number" placeholder="Asset Distinct/ Identification Number" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+                  <label class="txt row-txt">Address</label> 
+                <select name="immovableAssetAddress state" id="immovableAssetAddress state" data-vv-as="State" class="txt dropdown form-control" aria-required="true" aria-invalid="true">
+                    <option value="">Please Select One</option> <option class="txt dropdown" value="Andaman And Nicobar Islands">
+            Andaman And Nicobar Islands
+            </option><option class="txt dropdown" value="Andhra Pradesh">
+            Andhra Pradesh
+            </option><option class="txt dropdown" value="Arunachal Pradesh">
+            Arunachal Pradesh
+            </option><option class="txt dropdown" value="Assam">
+            Assam
+            </option><option class="txt dropdown" value="Bihar">
+            Bihar
+            </option><option class="txt dropdown" value="Chandigarh">
+            Chandigarh
+            </option><option class="txt dropdown" value="Chattisgarh">
+            Chattisgarh
+            </option><option class="txt dropdown" value="Dadra And Nagar Haveli">
+            Dadra And Nagar Haveli
+            </option><option class="txt dropdown" value="Daman And Diu">
+            Daman And Diu
+            </option><option class="txt dropdown" value="Delhi">
+            Delhi
+            </option><option class="txt dropdown" value="Goa">
+            Goa
+            </option><option class="txt dropdown" value="Gujarat">
+            Gujarat
+            </option><option class="txt dropdown" value="Haryana">
+            Haryana
+            </option><option class="txt dropdown" value="Himachal Pradesh">
+            Himachal Pradesh
+            </option><option class="txt dropdown" value="Jammu And Kashmir">
+            Jammu And Kashmir
+            </option><option class="txt dropdown" value="Jharkhand">
+            Jharkhand
+            </option><option class="txt dropdown" value="Karnataka">
+            Karnataka
+            </option><option class="txt dropdown" value="Kerala">
+            Kerala
+            </option><option class="txt dropdown" value="Lakshadweep">
+            Lakshadweep
+            </option><option class="txt dropdown" value="Madhya Pradesh">
+            Madhya Pradesh
+            </option><option class="txt dropdown" value="Maharashtra">
+            Maharashtra
+            </option><option class="txt dropdown" value="Manipur">
+            Manipur
+            </option><option class="txt dropdown" value="Meghalaya">
+            Meghalaya
+            </option><option class="txt dropdown" value="Mizoram">
+            Mizoram
+            </option><option class="txt dropdown" value="Nagaland">
+            Nagaland
+            </option><option class="txt dropdown" value="Odisha">
+            Odisha
+            </option><option class="txt dropdown" value="Pondicherry">
+            Pondicherry
+            </option><option class="txt dropdown" value="Punjab">
+            Punjab
+            </option><option class="txt dropdown" value="Rajasthan">
+            Rajasthan
+            </option><option class="txt dropdown" value="Sikkim">
+            Sikkim
+            </option><option class="txt dropdown" value="Tamil Nadu">
+            Tamil Nadu
+            </option><option class="txt dropdown" value="Tripura">
+            Tripura
+            </option><option class="txt dropdown" value="Uttar Pradesh">
+            Uttar Pradesh
+            </option><option class="txt dropdown" value="Uttarakhand">
+            Uttarakhand
+            </option><option class="txt dropdown" value="West Bengal">
+            West Bengal
+            </option><option class="txt dropdown" value="Telangana">
+            Telangana
+            </option></select> 
+    
+            <input type="text"  id="inventoryAssetAddress districtName" placeholder="District" data-vv-as="District" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">
+            <input type="text"  id="inventoryAssetAddress citytown" placeholder="City / Town / Village" data-vv-as="City / Town / Village" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false"> 
+            <input type="text"  id="inventoryAssetAddress pincode" placeholder="Pin Code" data-vv-as="Pin Code" autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">    
+            <input type="text"  id="inventoryAssetAddress Address1" placeholder="Address Line 1"  autocomplete="off" class="txt textbox form-control" aria-required="true" aria-invalid="false">    
+            <input type="text"  id="inventoryAssetAddress Address2" placeholder="Address Line 2"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">    
+            <input type="text"  id="inventoryAssetAddress Address3" placeholder="Address Line 3" autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">    
+                
+        </div> 
+        </div>
+    <div class="Intangible-Category form" style="display: none;">
+        <label for="assetType" class="txt row-txt">Intangible Category</label>
+        <select name="assetType" id="intangibleType" data-vv-as="Immovable Category" class="txt dropdown form-control" aria-required="true" aria-invalid="false">
+            <option value="">Please Select One</option> 
+            <option class="txt dropdown" value="1">
+                Copyright
+            </option>
+            <option class="txt dropdown" value="2">
+                Patents
+            </option>
+            <option class="txt dropdown" value="3">
+                Licences
+            </option>
+            <option class="txt dropdown" value="4">
+                IPR
+            </option>
+            <option class="txt dropdown" value="5">
+                Designs
+            </option>
+            <option class="txt dropdown" value="6">
+                Trade-Marks
+            </option>
+            <option class="txt dropdown" value="7">
+                Others
+            </option>
+        </select>
+        <div class="Copyright form" style="display: none;">
+            <label class="row-txt">Copyright Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div>
+        <div class="Patent form" style="display: none;">
+            <label class="row-txt">Patent Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div>         
+        <div class="Licence form" style="display: none;">
+            <label class="row-txt">Licence Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div>  
+        <div class="Design form" style="display: none;">
+            <label class="row-txt">IPR/Design Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div> 
+        <div class="Trade-Mark form" style="display: none;">
+            <label class="row-txt">Trade-Mark Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div> 
+        <div class="Others form" style="display: none;">
+            <label class="row-txt">Asset Details</label>
+    <!----> <input type="text" id="RegNo" placeholder="Registration No."  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Engine Number" placeholder="Engine Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false"> 
+            <input type="text" id="Chassis Number" placeholder="Chassis Number"  autocomplete="off" class="txt textbox form-control" aria-required="false" aria-invalid="false">
+        </div> 
+    </div>   
+        <div class="form">    
+            <label class="row-txt">Captcha</label> 
+                <input type="text" name="jcaptcha" id="jcaptcha" data-vv-as="Captcha" placeholder="Captcha" autocomplete="off" class="form-control" aria-required="true" aria-invalid="false">
+                <button disabled="disabled" class="captchaSubmit">Submit</button>
+        </div>
+         
+    <footer class="day-head" id="footer">
+        <div class="contact" data-translate="contact">
+            Some kind of contact information
+        </div>
+    </footer>
+    <script>
+        const assetCategorySelect = document.getElementById('assetCategory');
+        const immovableCategoryDiv = document.querySelector('.Immovable-Category');
+        const movableCategoryDiv = document.querySelector('.Movable-Category');
+        const intangibleCategoryDiv = document.querySelector('.Intangible-Category');
+        assetCategorySelect.addEventListener('change', () => {
+            if (assetCategorySelect.value === '1') { // Value "1" represents "Immovable"
+                immovableCategoryDiv.style.display = 'flex';
+            }else{
+            immovableCategoryDiv.style.display = 'none';
+            }if (assetCategorySelect.value === '2') { // Value "1" represents "Immovable"
+                movableCategoryDiv.style.display = 'flex';
+            }else{
+                movableCategoryDiv.style.display = 'none';
+            }if (assetCategorySelect.value === '3') { // Value "1" represents "Immovable"
+                intangibleCategoryDiv.style.display = 'flex';
+            }else{
+                intangibleCategoryDiv.style.display = 'none';
+            }
+        });
+        const movableAssetTypeSelect = document.getElementById('movableAssetType');
+        const vehicleCategoryDiv = document.querySelector('.Vehicle');
+        const equipmentCategoryDiv = document.querySelector('.Equipment');
+        const inventoryCategoryDiv = document.querySelector('.Inventory');
+        const movableothersCategoryDiv = document.querySelector('.Movable-Others');
+        movableAssetTypeSelect.addEventListener('change', () => {
+            if (movableAssetTypeSelect.value === '1') { // Value "1" represents "Immovable"
+                vehicleCategoryDiv.style.display = 'flex';
+            }else{
+                vehicleCategoryDiv.style.display = 'none';
+            }if (movableAssetTypeSelect.value === '2') { // Value "1" represents "Immovable"
+                equipmentCategoryDiv.style.display = 'flex';
+            }else{
+                equipmentCategoryDiv.style.display = 'none';
+            }if (movableAssetTypeSelect.value === '3' || movableAssetTypeSelect.value === '4') { // Value "1" represents "Immovable"
+                inventoryCategoryDiv.style.display = 'flex';
+            }else{
+                inventoryCategoryDiv.style.display = 'none';
+            }
+        });
+        const vehicleTypeSelect = document.getElementById('vehicleType');
+        const notShipDiv = document.querySelector('.NotShip');
+        const shipDiv = document.querySelector('.Ship');
+        vehicleTypeSelect.addEventListener('change', () => {
+            if (vehicleTypeSelect.value === '8') { // Value "1" represents "Immovable"
+                shipDiv.style.display = 'flex';
+                notShipDiv.style.display = 'none';
+            }else{
+                notShipDiv.style.display = 'flex';
+                shipDiv.style.display = 'none';
+            }
+        });
+        const intangibleTypeSelect = document.getElementById('intangibleType');
+        const copyrightDiv = document.querySelector('.Copyright');
+        const patentDiv = document.querySelector('.Patent');
+        const licenceDiv = document.querySelector('.Licence');
+        const designDiv = document.querySelector('.Design');
+        const trademarkDiv = document.querySelector('.Trade-Mark');        
+        const otherDiv = document.querySelector('.Others');
+        intangibleTypeSelect.addEventListener('change', () => {
+            if (intangibleTypeSelect.value === '1') { // Value "1" represents "Immovable"
+                copyrightDiv.style.display = 'flex';
+            }else{
+                copyrightDiv.style.display = 'none';
+            }
+            if (intangibleTypeSelect.value === '2') { // Value "1" represents "Immovable"
+                patentDiv.style.display = 'flex';
+            }else{
+                patentDiv.style.display = 'none';
+            }            
+            if (intangibleTypeSelect.value === '3') { // Value "1" represents "Immovable"
+                licenceDiv.style.display = 'flex';
+            }else{
+                licenceDiv.style.display = 'none';
+            }
+            if (intangibleTypeSelect.value === '4' || intangibleTypeSelect.value === '5') { // Value "1" represents "Immovable"
+                designDiv.style.display = 'flex';
+            }else{
+                designDiv.style.display = 'none';
+            }
+            if (intangibleTypeSelect.value === '6') { // Value "1" represents "Immovable"
+                trademarkDiv.style.display = 'flex';
+            }else{
+                trademarkDiv.style.display = 'none';
+            }
+            if (intangibleTypeSelect.value === '7') { // Value "1" represents "Immovable"
+                otherDiv.style.display = 'flex';
+            }else{
+                otherDiv.style.display = 'none';
+            }
+
+        });
+        let dropdownOpen = false;
+        let currentLanguage = 'en'; // Default language
+        //let currentMode = 'day-mode'
+        update();
+        if(localStorage.getItem("currentMode")==="day-mode"){
+            localStorage.setItem("currentMode", "day-mode");
+        }
+        let iconChanged = false;
+        const specifiedElement = document.getElementById('dropdown')
+        document.addEventListener('click', event => {
+            const isClickInside = specifiedElement.contains(event.target)
+            if (!isClickInside) {
+                if(dropdownOpen){
+                    dropdownOpen = !dropdownOpen;
+                    dropdown.classList.toggle('active', dropdownOpen);
+                }
+            }
+        })
+            function changeIcon() {
+                const iconElement = document.getElementById('icon');
+                if (iconChanged) {
+                    iconElement.textContent = 'notifications';
+                } else {
+                    iconElement.textContent = 'notifications_active'; 
+                }
+                iconChanged = !iconChanged;
+            }
+        const translations = {
+            en: {
+                fullForm: "Central Registry of Securitisation Asset Reconstruction and Security Interest of India",
+                Asset: "Asset Based Search",
+                Debtor: "Debtor Based Search",
+                AOR: "AOR Based Search",
+                Report: "Search Report",
+            },
+            hn: {
+                fullForm: "भारतीय प्रतिभूतिकरण परिसंपत्ति पुनर्निर्माण और प्रति‍भूति स्वत्व की केंद्रीय रजिस्ट्री",
+                Asset: "संपत्ति आधारित  अन्वेषण",
+                Debtor: "देनदार आधारित  अन्वेषण",
+                AOR: "समनुदेशन आधारित  अन्वेषण",
+                Report: "अन्वेषण रिपोर्ट",
+            },
+        };
+            function toggleDropdown() {
+              dropdownOpen = !dropdownOpen;
+              const dropdown = document.getElementById('dropdown');
+              dropdown.classList.toggle('active', dropdownOpen);
+            }
+    
+          
+            function toggleLanguage() {
+                if(currentLanguage === "hn"){
+                    document.getElementById("language").textContent = "हिंदी";
+                }else{
+                    document.getElementById("language").textContent = "English";
+                }
+                currentLanguage = currentLanguage === 'en' ? 'hn' : 'en';
+                translateElements();
+            }
+          
+            function update(){
+                var currentMode = localStorage.getItem("currentMode");
+                if(currentMode === "day-mode"){
+                    document.getElementById("mode").textContent = "dark_mode";
+                }else{
+                    document.getElementById("mode").textContent = "light_mode";
+                }
+                document.body.classList.toggle('night-mode', currentMode === 'night-mode');
+                document.body.classList.toggle('day-mode', currentMode === 'day-mode');
+                document.getElementById('header').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('header').classList.toggle('day-head', currentMode === 'day-mode');
+                document.getElementById('footer').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('footer').classList.toggle('day-head', currentMode === 'day-mode');
+    
+                Array.from(document.getElementsByClassName('page-link')).forEach((link) => {
+                    link.classList.toggle('night-link', currentMode === 'night-mode');
+                    link.classList.toggle('day-link', currentMode === 'day-mode');
+                });
+            }
+            function toggleMode() {
+                var currentMode = localStorage.getItem("currentMode");
+                if(currentMode === "day-mode"){
+                    document.getElementById("mode").textContent = "light_mode";
+                }else{
+                    document.getElementById("mode").textContent = "dark_mode";
+                }
+                localStorage.setItem("currentMode",currentMode === 'day-mode' ? 'night-mode' : 'day-mode');
+                currentMode = localStorage.getItem("currentMode");
+                document.body.classList.toggle('night-mode', currentMode === 'night-mode');
+                document.body.classList.toggle('day-mode', currentMode === 'day-mode');
+                document.getElementById('header').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('header').classList.toggle('day-head', currentMode === 'day-mode');
+                document.getElementById('footer').classList.toggle('night-head', currentMode === 'night-mode');
+                document.getElementById('footer').classList.toggle('day-head', currentMode === 'day-mode');
+    
+                Array.from(document.getElementsByClassName('page-link')).forEach((link) => {
+                    link.classList.toggle('night-link', currentMode === 'night-mode');
+                    link.classList.toggle('day-link', currentMode === 'day-mode');
+                });
+            }
+      
+            function showModal() {
+                const modalElement = document.getElementById('modal');
+                modalElement.classList.add('active');
+            }
+    
+            function dismissModal() {
+                const modalElement = document.getElementById('modal');
+                modalElement.classList.remove('active');
+                changeIcon();
+            }
+    
+            function translateElements() {
+                const elementsToTranslate = document.querySelectorAll('[data-translate]');
+                elementsToTranslate.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                        element.textContent = translations[currentLanguage][key];
+                    }
+                });
+            }
+    
+          </script>
+</body>
+
+
+</html>
