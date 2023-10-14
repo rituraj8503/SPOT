@@ -91,22 +91,6 @@ Output: {"Optimal Resource List 1": ["AWS Compute Engine",
          "Optimal Resource List 2": ["Amazon RDS",
          "Optimal Resource List 3": ["Amazon CloudFront",
 
-<details>
-
-<summary>Tips for collapsed sections</summary>
-
-### You can add a header
-
-You can add text within a collapsed section. 
-
-You can add an image or a code block, too.
-
-```ruby
-   puts "Hello World"
-```
-
-</details>
-
 
 
 
@@ -119,8 +103,7 @@ LLM Agent: "Are you okay with having cross cloud dependencies"
 User: "Yes"
 
 Output:
-
-Setup the resources with most optimal resources without bothering about the cloud platform each resource belongs to. 
+Setup the resources with most optimal resources without bothering about the cloud platform each resource belongs to. Resource 1 could be an AWS resource and resource 2 could be a GCP resource but the automated deployment will deploy 
 
 
 
