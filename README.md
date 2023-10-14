@@ -104,6 +104,7 @@ Automate Cloud Agnostic Infrastructure Deployment:
 Abstract Class with separate implementations for cloud infra deployment for each cloud provider (example: AWS deployment, GCP deployment, Azure deployment)
 The resources selected by the resource specification recommender and the cost optimizer will be sent as input to this abstract class which will be instances in the constructor of the abstract class. The entire deployment process is basically mutliple layers of abstraction added on top of an IAC platform PULUMI which means that the user does not need to bother about anything cloud specific. 
 
+```
 class CloudInfrastructure(ABC):
     @abstractmethod
     def __init__(self, gcp_proj, number_of_vms, public_key, vm_size, existing_net, cloud_platform, network_id, subnet_id,security_group_id, resource_group,
@@ -150,6 +151,8 @@ class CloudInfrastructure(ABC):
           pass
 
       ......
+
+```
 
 Then after the cloud provider is identified, the infrastructure gets deployed using PULUMI (Infrastructure AS Code). PULUMI allows cloud infrastruture deployment using your favorite programming language (In this case, our backend will be built using Typescript and Python). PULUMI deploys and manages the clients state of cloud infra all by itself so that the user does not need to worry at all about what their current infra looks like. It also validates the cloud credentials for the user before it gets deployed
 
