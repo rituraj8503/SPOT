@@ -61,11 +61,13 @@ Output:        {"Resource 1": Web Hosting Platform,
                 "Resource 6": Security,
                 "Resource 7": Monitoring and Analytics} 
 
-                
-Cost Optimizer:
 
-Makes cloud platform specific api calls (Example: AWS/GCP/Azure cloud pricing API) to create a SQL database with all spot and on demand cloud resource pricing
-Output is a list of each type of resource in ascending order with respect to cost
+Choice of Cloud Platform + Cost Optimizer:
+
+Now the user has a choice. Either provide the cloud provider or opt for the most cost effective effective cloud platform by considering monthly costs to deploy all resources.
+Each cloud provider requires different resources and dependencies so their costs could be wildly different. 
+
+Case 1: If the user provides their own cloud platform and lets say the platform provided is AWS, 
 
 Example Input: {"Resource 1": Web Hosting Platform,
                 "Resource 2": Database,
@@ -75,13 +77,54 @@ Example Input: {"Resource 1": Web Hosting Platform,
                 "Resource 6": Security,
                 "Resource 7": Monitoring and Analytics} 
 
-Output: {"Web Hosting Platform": ["AWS Compute Engine", 
-         "Optimal Resource List 2": ["Amazon RDS",
-         "Optimal Resource List 3": ["Amazon CloudFront",
+{
+  "Monthly Projected Cost": "$500",
+  "Web Hosting Platform": [("AWS Compute Engine", "$200", "GCP Compute Engine", "$180", "Azure Virtual Machines", "$220")],
+  "Database": [("Amazon RDS", "$150", "Google Cloud SQL", "$140", "Azure Database", "$160")],
+  "Content Delivery Network": [("Amazon CloudFront", "$50", "Google Cloud CDN", "$45", "Azure CDN", "$55")],
+  "Load Balancer": [("Amazon Elastic Load Balancing", "$30", "Google Cloud Load Balancing", "$28", "Azure Load Balancer", "$35")],
+  "Auto Scaling": [("AWS Auto Scaling Groups", "$20", "Google Cloud Instance Groups", "$18", "Azure Virtual Machine Scale Sets", "$22")],
+  "Security": [("AWS WAF and Shield", "$25", "Google Cloud Armor", "$23", "Azure DDoS Protection", "$28")],
+  "Monitoring and Analytics": [("AWS CloudWatch", "$10", "Google Cloud Monitoring", "$9", "Azure Monitor", "$11")]
+}
 
 
 
-Choice of Cloud Platform:
+Case 2: If the user opts for the most cost effective cloud provider, list out the cheapest resource types for each cloud provider, aggregate the costs for each of them and choose 
+        the cloud platform that ensures lowest monthly costs,
+
+
+Example Input: {"Resource 1": Web Hosting Platform,
+                "Resource 2": Database,
+                "Resource 3": Content Delivery Network,
+                "Resource 4": Load Balancer,
+                "Resource 5": Auto Scaling,
+                "Resource 6": Security,
+                "Resource 7": Monitoring and Analytics} 
+
+{
+  "Cost Cloud Provider": "AWS",
+  "Monthly Projected Cost": "$16534/month",
+  "Web Hosting Platform": [("AWS Compute Engine", "GCP Compute Engine", "Azure Virtual Machines")],
+  "Database": [("Amazon RDS", "Google Cloud SQL", "Azure Database")],
+  "Content Delivery Network": [("Amazon CloudFront", "Google Cloud CDN", "Azure CDN")],
+  "Load Balancer": [("Amazon Elastic Load Balancing", "Google Cloud Load Balancing", "Azure Load Balancer")],
+  "Auto Scaling": [("AWS Auto Scaling Groups", "Google Cloud Instance Groups", "Azure Virtual Machine Scale Sets")],
+  "Security": [("AWS WAF and Shield", "Google Cloud Armor", "Azure DDoS Protection")],
+  "Monitoring and Analytics": [("AWS CloudWatch", "Google Cloud Monitoring", "Azure Monitor")]
+}
+
+
+        
+
+
+Makes cloud platform specific api calls (Example: AWS/GCP/Azure cloud pricing API) to create a SQL database with all spot and on demand cloud resource pricing
+Output is a list of each type of resource in ascending order with respect to cost
+
+
+
+
+
 
 Example Input:
 LLM Agent: "Are you okay with having cross cloud dependencies"
