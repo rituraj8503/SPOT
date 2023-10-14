@@ -79,8 +79,8 @@ Queries can be as abstract as possible. No background in cloud deployment requir
     Example Input: 
       ```
       {"Resource 1": Web Hosting Platform,
-                      "Resource 2": Database,
-                      "Resource 3": Content Delivery Network,
+       "Resource 2": Database,
+       "Resource 3": Content Delivery Network,
                       "Resource 4": Load Balancer,
                       "Resource 5": Auto Scaling,
                       "Resource 6": Security,
