@@ -2,10 +2,19 @@
 
 
 #Workflow
+
+
+
 Query ----> LLM Agent ---> Resource Specification Recommender ---> Cloud Cost Optimizer ----> Automated Cloud Agnostic Deployment
 
 
+
+
 #Query:
+
+
+
+
 Queries can be as abstract as possible. No background in cloud deployment required.
 
 General Cloud Recommendation:
@@ -43,6 +52,10 @@ User: "I need to integrate my application with third-party APIs and services. Wh
 
 #LLM Agent:
 
+
+
+
+
 Resource Specification Recommender:
 
 Example Input: "I have a web application. It's a small e-commerce site. I expect around 10,000 visitors per day. What's the best cloud provider and instance type for me?"
@@ -54,6 +67,11 @@ Output:        {"Resource 1": Web Hosting Platform,
                 "Resource 5": Auto Scaling,
                 "Resource 6": Security,
                 "Resource 7": Monitoring and Analytics} 
+
+
+
+
+                
 
                 
 Cost Optimizer:
@@ -75,6 +93,10 @@ Output: {"Optimal Resource List 1": ["AWS Compute Engine",
 
 
 
+
+
+
+
 Cross Cloud/Single Cloud Setup:
 
 Example Input:
@@ -83,7 +105,7 @@ User: "Yes"
 
 Output:
 
-Setup the resources with 
+Setup the resources with Optimal
 
 
 
