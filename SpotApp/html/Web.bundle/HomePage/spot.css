@@ -9,7 +9,21 @@ body {
     margin: 0;
     padding: 0;
 }
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #007BFF; /* Blue background color */
+    color: #fff; /* White text color */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
 
+.button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
 header {
     background-color: #141414;
     color: #fff;
