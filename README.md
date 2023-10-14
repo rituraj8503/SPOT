@@ -3,6 +3,20 @@
 ## Customer Need / Opportunity
 Currently, the glocal cloud computing market is worth hundreds of billions dollars. $593 billion was spent on cloud deployments this year alone. Many small business (66% of small tech companies) and individual developers tend to deploy their applications on the cloud in order to scale and cut costs. However, deploying incorrectly or using excessive resources can completely break one's bank - and unfortunately, it is very common. According to CloudZero, only 3 out of 10 organizations know exactly where their cloud costs are going. This is because of the vast and dense information associated with cloud resources and deployments, which many small business and developers cannot understand without significant experience in the field or without investing a lot of time in research. Ideally, the time and energy of developers should go to building and perfecting their applications and not worrying about the exponential cost of their cloud resources. Having an application that would automate the customer deployments as well as recommend them the optimal amount of resources needed as well as the optimal pricing would be ideal. 
 
+
+
+## Why choose us over YAML/Terraform/Manual Configurations?
+Without our product, clients will tend to choose one of the following,
+1) Write out a YAML file
+2) Create an HCL script on Terraform (IAC)
+3) Set up configurations through the cloud specific consoles (example: GCP console)
+
+Now to do any of the above, you need to either have cloud knowledge and also cloud specific knowledge because every cloud provider has a separate deployment workflow. Thus it gets very complicated and time consuming to first find an ideal cloud resource and then deploy the resource using complex configuration files. Also if the user makes a simple mistake, like simply choosing the wrong instance type for a VM, they could incur a mssive loss every month. They might also need to hire a DevOps team to do this efficiently and this would become very hard for any small startup with a low budget. Now what if we automated everything?
+
+Our clients do not need to have any cloud knowledge. They only need to buy a cloud subscription and provide us with their credentials and desires and everything will be setup for them. Its literally a CI/CD workflow for cloud resources. 
+
+
+
 ## Workflow
 
 
