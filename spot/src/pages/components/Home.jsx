@@ -1,6 +1,9 @@
-
+import Footer from "./footer"
 export default function Home() {
   return (
-    <p>Hello</p>
+    <div>
+      Hello
+    <Footer />
+    </div>
   )
 }
