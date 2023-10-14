@@ -254,8 +254,9 @@ class GCPInfrastructure(CloudInfrastructure):
 
 The user also has the choice of integrating their existing infrastructure with their new updates, so that they do not need to create separate resources every time they deploy. This saves cloud costs and alows reusability of infra which also prevents capacity constraint issues.  
 
-Finally once everything gets deployed a stack output is generated which contains information about how the clients can ssh into their applications on the cloud. The stack output looks something like
+Finally once everything gets deployed a stack output is generated which contains information about how the clients can ssh into their applications on the cloud. The stack output gets communicated to the user through the LLM Agent. The stack output contains information about what are the ids of the virtual machine deployed or what are the ids of the Virtual Private Cloud deployed so that the user can use these external ids to ssh into the resource.
 
+Firewall rules also get setup automatically securing the resource and the user's public key gets written into the authorized_keys file of the resource so that the key exchange process works efficiently.
 
 
 
