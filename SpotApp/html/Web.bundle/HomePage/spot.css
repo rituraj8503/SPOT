@@ -33,8 +33,11 @@ header {
     padding: 10px 20px;
 }
 .founder{
+    background-color: #141414;
     padding-top: 100px;
     padding-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -84,6 +87,7 @@ nav ul li {
 
 .demo-img {
     width: 80%;
+    border-radius: 30px;
 }
 
 .scroll-container {
