@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cloud Business</title>
+    <title>Spot | Home</title>
     <link rel="stylesheet" href="spot.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
 
     <div class="container">
         <div class="left">
-            <h1>The only <span id="spot">spot</span> for all your cloud needs</h1>
+            <h1>The only <span class="spot">spot</span> for all your cloud needs</h1>
             <h2 class="subtitle">Cloud development, made easier</h2>
             <div class="checklist">
                 <div class="check">
@@ -41,7 +41,10 @@
                     margin-right: 7px;">check</span>
                     <p>Saved over $10,000 dollars in cloud deployments</p>
                 </div>
-                <a class="button" href="setup.html" id="get-started">Get Started</a>
+                <div class="center">
+                    <a class="button" href="">Log In</a>
+                    <a class="button" href="setup.html" id="get-started">Get Started</a>
+                </div>
             </div>
 
         </div>
@@ -81,8 +84,134 @@
             <li><img src="../Assets/gcloud.png" alt="Google Cloud logo"></li>
         </ul>
     </div>
-    <div>
 
+    <div class="problem type-1">
+        <h2>Configuring Cloud infrastructure is Hard.</h2>
+        <p class="subtitle">Developers waste valuable time and money!</p>
+        <div class="problem-cards">
+            <div class="card">
+                <div class='main'>
+                  <h3>Time Consuming</h3>
+                  <p class='description'>It takes a lot of time to configure and set up infrastructure on the cloud.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>Expensive</h3>
+                  <p class='description'>Most companies provide expensive pricing tiers by default, which developers have to manually change.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>Vendor Lock-in</h3>
+                  <p class='description'>Most developers are "locked-in" with their current cloud provider, due to configuration challenges, and find it difficult to switch to other cloud providers.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>Requires Experience</h3>
+                  <p class='description'>Cloud infrastructure and development has a large learning curve, especially for small developers. Current techniques such as writing long YAML files, HCL Scripts, or manual config files requires prior experience and knowledge.</p>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="problem">
+        <h2>Are you sure?</h2>
+        <p class="subtitle">Here are some statistics we found.</p>
+        <div class="problem-cards">
+            <div class="card">
+                <div class='main'>
+                  <h3>Only 3 out of 10 organizations know exactly where their cloud costs are going.</h3>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>According to 44% of executives, at least a third of their cloud spend is wasted.</h3>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>7 out of 10 companies aren't sure what they spend their cloud budget on, according to CloudZero.</h3>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>593 billion USD was spent on cloud deployments this year alone.</h3>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>About 44% of traditional small businesses use cloud infrastructure or hosting services, compared to 66% of small tech companies and 74% of enterprises.</h3>
+                </div>
+              </div>
+        </div>
+
+    </div>
+    <div class="solution type-1">
+        <h2>Here comes <span class="spot">spot</span>.</h2>
+        <p class="subtitle">The one-stop solution to all your cloud problems!</p>
+        <div class="problem-cards">
+            <div class="card">
+                <div class='main'>
+                  <h3>Time-Saver</h3>
+                  <p class='description'>Our Resource Recommender and Automated Cloud-Agnostic Development creates a hassle-free development experience.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>Budget Friendly</h3>
+                  <p class='description'>Don't know if you're being overcharged? Our Cloud Cost Optimizer optimizes the cost based on your cloud needs.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>Cloud Agnostic</h3>
+                  <p class='description'>Spot helps developers to host applications that can run seamlessly across any cloud provider.</p>
+                </div>
+              </div>
+              <div class="card">
+                <div class='main'>
+                  <h3>User-Friendly</h3>
+                  <p class='description'>Spot's intuitive User-Friendly Interface does not require any cloud knowledge, and is easy to set up!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="solution">
+        <h2>If you are...</h2>
+        <div class="flex-container">
+            <div class="checklist" style="margin-top: 20px;">
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 15px;
+                    margin-right: 7px;">check</span>
+                    <p style="margin-top:15px">An individual developer seeking to use the cloud</p>
+                </div>
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 5px;
+                    margin-right: 7px;">check</span>
+                    <p>A developer with no experience in cloud infrastructure</p>
+                </div>
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 5px;
+                    margin-right: 7px;">check</span>
+                    <p>A small business seeking to manage their cloud resources</p>
+                </div>
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 5px;
+                    margin-right: 7px;">check</span>
+                    <p>A company looking to minimize cloud development costs</p>
+                </div>
+            </div>
+            <img src="../Assets/devs.gif" alt="developers coding" id="dev-img">
+        </div>
+        <h2>...then <span class="spot">spot</span> is the perfect tool for you!</h2>
+    </div>
+    <div class="solution type-1">
+        <h2>Join the <span class="spot">spot</span> community now!</h2>
+        <p class="subtitle">Make your life easier!</p>
+        <div class="center">
+            <a class="button" href="setup.html" id="get-started">Get Started</a>
+        </div>
     </div>
 
 
