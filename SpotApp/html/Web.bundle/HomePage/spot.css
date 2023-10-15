@@ -327,6 +327,10 @@ nav ul li {
     color: #007BFF;
 }
 
+.container-about h1 {
+    text-align: center;
+}
+
 .subtitle {
     color:#bbb;
 }
