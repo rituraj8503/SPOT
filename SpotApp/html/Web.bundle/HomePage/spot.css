@@ -108,7 +108,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 0px 20px;
 }
 .founder{
     background-color: #141414;
@@ -124,7 +124,7 @@ header {
 }
 
 header img {
-    max-height: 50px;
+    max-height: 70px;
 }
 
 nav ul {
@@ -159,10 +159,6 @@ nav ul li {
 .right {
     flex: 1;
     overflow: hidden;
-}
-
-.logo {
-    width: 130px;
 }
 
 .main-img {
