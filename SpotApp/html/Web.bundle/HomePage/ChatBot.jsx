@@ -57,7 +57,7 @@ const ChatBot = () => {
     const apiRequestBody = {
       "model": "gpt-3.5-turbo",
       "messages": [
-        { role: "system", content: "I'm a Student using ChatGPT for learning" },
+        { role: "system", content: "Give an implementation in a JSON List form for developers who a new to the cloud with the parameters InstanceType, vCPUs, MemoryGiB, AcceleratorName, AcceleratorCount, GpuInfo, Region, AvailabilityZone, Price, SpotPrice, Generation for each cloud provider." },
         ...apiMessages,
       ],
     };
