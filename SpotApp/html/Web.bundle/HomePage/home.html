@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gabarito&family=Inter:wght@400;600;700&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&family=Inter:wght@400;600;700&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300&family=Poppins:wght@300;400;500;600&family=Catamaran:wght@400;800&family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
 </head>
 <body>
-    <header>
+    <header class="type-1">
         <a href="./home.html"><img class="logo" src="../Assets/spot_logo_transparent.png" alt="Logo"></a>
         <nav>
             <ul>
@@ -28,19 +28,22 @@
 
     <div class="container">
         <div class="left">
-            <h1>The one Spot for all your cloud needs</h1>
-            <h2>Cloud development made easier!</h2>
-            <div class="check">
-                <span class="material-symbols-outlined" style="color: green; margin-top: 15px;
-                margin-right: 7px;">check</span>
-                <p>Trusted by over 100 clients</p>
+            <h1>The only <span id="spot">spot</span> for all your cloud needs</h1>
+            <h2 class="subtitle">Cloud development, made easier</h2>
+            <div class="checklist">
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 15px;
+                    margin-right: 7px;">check</span>
+                    <p>Trusted by over 100 clients</p>
+                </div>
+                <div class="check">
+                    <span class="material-symbols-outlined" style="color: green; margin-top: 15px;
+                    margin-right: 7px;">check</span>
+                    <p>Saved over $10,000 dollars in cloud deployments</p>
+                </div>
+                <a class="button" href="setup.html" id="get-started">Get Started</a>
             </div>
-            <div class="check">
-                <span class="material-symbols-outlined" style="color: green; margin-top: 15px;
-                margin-right: 7px;">check</span>
-                <p>Saved over $10,000 dollars in cloud deployments</p>
-            </div>
-            <a class="button" href="setup.html">Get Started</a>
+
         </div>
         <div class="right slideshow-container">
             <div class="slide">
@@ -69,6 +72,19 @@
             </div>
         </div>
     </div>
+    <div class="supported">
+        <p>Currently Supports</p>
+        <ul>
+            <li><img src="../Assets/hashicorp.png" alt="HashiCorp Terraform logo"></li>
+            <li><img src="../Assets/aws.png" alt="Amazon Web Services logo"></li>
+            <li><img src="../Assets/azure.png" alt="Microsoft Azure logo"></li>
+            <li><img src="../Assets/gcloud.png" alt="Google Cloud logo"></li>
+        </ul>
+    </div>
+    <div>
+
+    </div>
+
 
     <script>
         let slideIndex = 0;

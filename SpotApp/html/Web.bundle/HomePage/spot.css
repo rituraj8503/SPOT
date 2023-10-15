@@ -7,13 +7,18 @@ a{
 }
 
 h1 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Catamaran', serif;
     color: white;
-    font-size: 80px;
+    font-weight: 800;
+    font-size: 75px;
+    line-height: 120%;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 h2 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Catamaran', serif;
+    font-weight: 400;
     color: white;
 }
 
@@ -22,8 +27,9 @@ li {
 }
 
 p {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     color: white;
+    font-size: large;
 }
 
 
@@ -32,6 +38,27 @@ p {
     flex-direction: row;
     margin-top: 50px;
     margin-right: 10px;
+}
+
+.supported ul {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.supported ul li {
+    margin: 1rem 4rem;
+    display: inline-block;
+}
+
+.supported p {
+    text-align: center;
+    color: #bbb;
+    font-size: medium;
 }
 
 .demo-parent {
@@ -86,10 +113,13 @@ p {
     margin-left: 15px;
 }
 
+.checklist {
+    margin: 0px 50px;
+}
+
 .check {
     display: flex;
     flex-direction: row;
-    justify-content: center;
 }
 
 body {
@@ -115,8 +145,11 @@ body {
 .button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+.type-1 {
+    background-color: #1d1d1d;
+}
 header {
-    background: #1d1d1d;
     color: #fff;
     display: flex;
     justify-content: space-between;
@@ -172,18 +205,29 @@ nav ul li {
 
 .left {
     flex: 1;
+    margin: 0px 20px;
     padding: 20px;
     text-align: center;
 }
 
 .right {
     flex: 1;
+    margin-left: 20px;
+    width: 200px;
     overflow: hidden;
 }
 
 .main-img {
     border-radius: 30px;
     transition: 0.4s ease;
+}
+
+#spot {
+    color: #007BFF;
+}
+
+.subtitle {
+    color:#bbb;
 }
 
 .platform-h3 {
@@ -227,7 +271,7 @@ nav ul li {
         top: 50%;
         transform: translateY(-50%);
         padding: 10px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.0);
         color: #fff;
         cursor: pointer;
     }
@@ -246,8 +290,8 @@ nav ul li {
 
     .dot {
         display: inline-block;
-        width: 15px;
-        height: 15px;
+        width: 5px;
+        height: 5px;
         margin: 0 5px;
         background-color: #717171;
         border-radius: 50%;
@@ -263,5 +307,5 @@ nav ul li {
   'FILL' 0,
   'wght' 400,
   'GRAD' 0,
-  'opsz' 24
+  'opsz' 20
 }
