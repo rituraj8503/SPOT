@@ -1,5 +1,98 @@
+import csv
+import requests
 import pulumi
 import pulumi_gcp as gcp
+from google.cloud import compute_v1
+from io import StringIO
+
+pulumi_config = pulumi.Config()
+
+
+project = "abstractclassnew"
+region = "us-central1"  
+vmPerf = "standard"
+if vmPerf == "high_performance":
+    user_machine_type = (8, 16384) 
+else:
+    user_machine_type = (2, 2048)
+
+# Fetch available machine types from GCP
+client = compute_v1.MachineTypesClient()
+available_machine_types = []
+for page in client.list(project=project, zone=f"{region}-a"):
+    available_machine_types.append({
+        "name": page.name,
+        "vcpus": page.guest_cpus,
+        "memory_mb": page.memory_mb
+    })
+
+csv_url = "https://raw.githubusercontent.com/skypilot-org/skypilot-catalog/master/catalogs/v5/gcp/vms.csv"
+response = requests.get(csv_url)
+csv_content = response.text
+csv_file = StringIO(csv_content)
+csv_reader = csv.DictReader(csv_file)
+vm_options = list(csv_reader)
+
+# Transform the CSV data into the desired format for OpenAI API
+formatted_vm_options = []
+for option in vm_options:
+    # Check if the vCPUs field is not empty before converting to float and then to int
+    vcpus = int(float(option["vCPUs"])) if option["vCPUs"] else None
+    formatted_option = {
+        "InstanceType": option["InstanceType"],
+        "vcpus": vcpus,
+        "memory_mb": int(float(option["MemoryGiB"])) if option["MemoryGiB"] else None,
+        "price_per_hour": float(option["Price"]) if option["Price"] else None,
+    }
+    formatted_vm_options.append(formatted_option)
+
+# Print the formatted VM options
+print(formatted_vm_options)
+
+# Transform the formatted_vm_options into messages for OpenAI API training
+messages = []
+
+for option in formatted_vm_options:
+    # Create a message for instance type
+    instance_type_message = {"role": "instance_type", "content": option["InstanceType"]}
+    messages.append(instance_type_message)
+
+    # Create a message for vCPUs
+    vcpus_message = {"role": "vcpus", "content": option["vcpus"]} if option["vcpus"] else None
+    if vcpus_message:
+        messages.append(vcpus_message)
+
+    # Create a message for memory
+    memory_message = {"role": "memory", "content": option["memory_mb"]} if option["memory_mb"] else None
+    if memory_message:
+        messages.append(memory_message)
+
+    # Create a message for price
+    price_message = {"role": "price_per_hour", "content": option["price_per_hour"]} if option["price_per_hour"] else None
+    if price_message:
+        messages.append(price_message)
+
+# Print the formatted messages
+print(messages)
+
+
+
+
+# Find the top 3 closest matches to user's requirements
+top_3_closest_machine_types = sorted(
+    available_machine_types,
+    key=lambda vm: (abs(vm["vcpus"] - user_machine_type[0]) +
+                   abs(vm["memory_mb"] - user_machine_type[1]))
+)[:3]
+
+
+# Find the cheapest VM option among the top 3 closest matches
+cheapest_vm_option_among_top_3 = min(
+    top_3_closest_machine_types,
+    key=lambda vm: float(next(option["Price"] for option in vm_options if option["InstanceType"] == vm["name"]))
+)
+
+
 
 # Create a GCP network
 network = gcp.compute.Network(
@@ -10,7 +103,7 @@ network = gcp.compute.Network(
 # Create a GCP subnet
 subnet = gcp.compute.Subnetwork(
     "spot-subnet",
-    region="us-central1",
+    region=region,
     ip_cidr_range="10.0.0.0/24",
     network=network.id,
 )
@@ -29,21 +122,30 @@ ssh_firewall = gcp.compute.Firewall(
 )
 
 
+external_ip = gcp.compute.Address("external-ip-spot", region=region)
+
 # Create a VM instance with the custom startup script
 vm_instance = gcp.compute.Instance(
     "vm-instance-spot",
-    machine_type="n1-standard-1",
+    machine_type=cheapest_vm_option_among_top_3["name"],  
     boot_disk=gcp.compute.InstanceBootDiskArgs(
         initialize_params=gcp.compute.InstanceBootDiskInitializeParamsArgs(
             image="centos-7-v20230711",
         ),
     ),
     metadata={
-             "sshKeys": "aryaman1411:" + "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBrAqHPYkob8njm32W5V/I9WTfPk89Q/3B5+fAxGiPT aryaman@devzero.io",
+        "ssh-keys": "aryaman1411:" + "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBrAqHPYkob8njm32W5V/I9WTfPk89Q/3B5+fAxGiPT aryaman@devzero.io",
     },
-    network_interfaces=[gcp.compute.InstanceNetworkInterfaceArgs(
-        network=network.id,
-    )],
+    network_interfaces=[
+        gcp.compute.InstanceNetworkInterfaceArgs(
+            network=network.id,
+            access_configs=[
+                gcp.compute.InstanceNetworkInterfaceAccessConfigArgs(
+                    nat_ip=external_ip.address
+                )
+            ],
+        )
+    ],
 )
 
-# Export the public IP of the VM instancepulumi.export("public_ip_spot", vm_instance.network_interfaces[0].access_configs[0].nat_ip)
+pulumi.export("VM-Details", vm_instance)
