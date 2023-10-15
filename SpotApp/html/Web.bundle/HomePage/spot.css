@@ -123,7 +123,7 @@ header {
     justify-content: space-evenly;
 }
 
-header img {
+.logo {
     max-height: 70px;
 }
 
