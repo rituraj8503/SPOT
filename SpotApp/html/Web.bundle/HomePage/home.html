@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cloud Business</title>
+    <link rel="stylesheet" href="spot.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body>
+    <header>
+        <img src="../Assets/Spot_Logo.jpeg" alt="Logo">
+        <nav>
+            <ul>
+                <li><a href="./home.html">Home</a></li>
+                <li><a href="./setup.html">Setup</a></li>
+                <li><a href="./about.html">About Us</a></li>
+                <li><a href="./platform.html">Platform</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="left">
+            <h1>The one Spot for all your cloud needs</h1>
+            <p><span class="material-symbols-outlined" style="color: green;">check</span>Trusted by over 100 clients</p>
+            <p><span class="material-symbols-outlined" style="color: green;">check</span>Saved over $10,000 dollars in cloud deployments</p>
+            <a class="button" href="setup.html">Get Started</a>
+        </div>
+        <div class="right slideshow-container">
+            <div class="slide">
+                <img src="../Assets/Cloud-1.jpeg" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="../Assets/Cloud-2.jpeg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="../Assets/Cloud-3.jpeg" alt="Image 3">
+            </div>
+            <!-- Add more slides with images as needed -->
+
+            <a class="prev"><span class="material-symbols-outlined">
+                chevron_left
+                </span></a>
+            <a class="next"><span class="material-symbols-outlined">
+                chevron_right
+                </span></a>
+
+            <div class="dot-container">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <!-- Add more dots for additional slides -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }
+
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            slides.forEach(slide => slide.style.display = 'none');
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[slideIndex].style.display = 'block';
+            dots[slideIndex].classList.add('active');
+        }
+
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const dotButtons = document.querySelectorAll('.dot');
+
+        prevButton.addEventListener('click', () => plusSlides(-1));
+        nextButton.addEventListener('click', () => plusSlides(1));
+
+        dotButtons.forEach((dot, index) => {
+            dot.addEventListener('click', () => currentSlide(index));
+        });
+    </script>
+</body>
+</html>
