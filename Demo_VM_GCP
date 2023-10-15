@@ -1,0 +1,49 @@
+import pulumi
+import pulumi_gcp as gcp
+
+# Create a GCP network
+network = gcp.compute.Network(
+    "spot-network",
+    auto_create_subnetworks=True,
+)
+
+# Create a GCP subnet
+subnet = gcp.compute.Subnetwork(
+    "spot-subnet",
+    region="us-central1",
+    ip_cidr_range="10.0.0.0/24",
+    network=network.id,
+)
+
+# Create a firewall rule to allow SSH traffic
+ssh_firewall = gcp.compute.Firewall(
+    "allow-ssh-spot",
+    network=network.id,
+    allows=[
+        gcp.compute.FirewallAllowArgs(
+            ports=["22"],
+            protocol="tcp",
+        ),
+    ],
+    source_ranges=["0.0.0.0/0"],
+)
+
+
+# Create a VM instance with the custom startup script
+vm_instance = gcp.compute.Instance(
+    "vm-instance-spot",
+    machine_type="n1-standard-1",
+    boot_disk=gcp.compute.InstanceBootDiskArgs(
+        initialize_params=gcp.compute.InstanceBootDiskInitializeParamsArgs(
+            image="centos-7-v20230711",
+        ),
+    ),
+    metadata={
+             "sshKeys": "aryaman1411:" + "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBBrAqHPYkob8njm32W5V/I9WTfPk89Q/3B5+fAxGiPT aryaman@devzero.io",
+    },
+    network_interfaces=[gcp.compute.InstanceNetworkInterfaceArgs(
+        network=network.id,
+    )],
+)
+
+# Export the public IP of the VM instancepulumi.export("public_ip_spot", vm_instance.network_interfaces[0].access_configs[0].nat_ip)
