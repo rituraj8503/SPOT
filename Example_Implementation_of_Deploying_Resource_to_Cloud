@@ -33,49 +33,6 @@ csv_file = StringIO(csv_content)
 csv_reader = csv.DictReader(csv_file)
 vm_options = list(csv_reader)
 
-# Transform the CSV data into the desired format for OpenAI API
-formatted_vm_options = []
-for option in vm_options:
-    # Check if the vCPUs field is not empty before converting to float and then to int
-    vcpus = int(float(option["vCPUs"])) if option["vCPUs"] else None
-    formatted_option = {
-        "InstanceType": option["InstanceType"],
-        "vcpus": vcpus,
-        "memory_mb": int(float(option["MemoryGiB"])) if option["MemoryGiB"] else None,
-        "price_per_hour": float(option["Price"]) if option["Price"] else None,
-    }
-    formatted_vm_options.append(formatted_option)
-
-# Print the formatted VM options
-print(formatted_vm_options)
-
-# Transform the formatted_vm_options into messages for OpenAI API training
-messages = []
-
-for option in formatted_vm_options:
-    # Create a message for instance type
-    instance_type_message = {"role": "instance_type", "content": option["InstanceType"]}
-    messages.append(instance_type_message)
-
-    # Create a message for vCPUs
-    vcpus_message = {"role": "vcpus", "content": option["vcpus"]} if option["vcpus"] else None
-    if vcpus_message:
-        messages.append(vcpus_message)
-
-    # Create a message for memory
-    memory_message = {"role": "memory", "content": option["memory_mb"]} if option["memory_mb"] else None
-    if memory_message:
-        messages.append(memory_message)
-
-    # Create a message for price
-    price_message = {"role": "price_per_hour", "content": option["price_per_hour"]} if option["price_per_hour"] else None
-    if price_message:
-        messages.append(price_message)
-
-# Print the formatted messages
-print(messages)
-
-
 
 
 # Find the top 3 closest matches to user's requirements
@@ -91,7 +48,6 @@ cheapest_vm_option_among_top_3 = min(
     top_3_closest_machine_types,
     key=lambda vm: float(next(option["Price"] for option in vm_options if option["InstanceType"] == vm["name"]))
 )
-
 
 
 # Create a GCP network
