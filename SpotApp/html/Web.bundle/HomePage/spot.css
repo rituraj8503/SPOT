@@ -78,6 +78,14 @@ nav ul li {
     overflow: hidden;
 }
 
+.main-img {
+    border-radius: 30px;
+}
+
+.demo-img {
+    width: 80%;
+}
+
 .scroll-container {
     display: flex;
     flex-wrap: nowrap;
