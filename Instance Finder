@@ -1,0 +1,136 @@
+"""A Python Pulumi program"""
+import pulumi
+import pulumi_aws as aws 
+
+# Create VPC
+vpc = aws.ec2.Vpc('my-vpc',
+    cidr_block='10.0.0.0/16',
+    enable_dns_hostnames=True,
+    tags={'Name': 'my-vpc'}
+)
+number_of_instances = 3
+# now I want to choose instance types that match the number of vcpus and memory the user needs
+# I want to create a dictionary with the instance types and their specs
+custom_vcpu = 2
+custom_memory = 1600
+import boto3
+def get_instance_types(region, custom_vcpu, custom_memory):
+    ec2 = boto3.client('ec2', region_name=region)
+    instance_types = []
+    response = ec2.describe_instance_types()
+    for instance_type_info in response['InstanceTypes']:
+        instance_type = instance_type_info['InstanceType']
+        specs_response = ec2.describe_instance_types(InstanceTypes=[instance_type])
+        specs = specs_response['InstanceTypes'][0]
+        # Extract vCPU and memory information
+        vcpu_info = specs['VCpuInfo']['DefaultVCpus']
+        memory_info = specs['MemoryInfo']['SizeInMiB']
+        # Check if instance type meets user's requirements
+        if int(vcpu_info) >= custom_vcpu and memory_info >= custom_memory:
+            instance_types.append((instance_type, int(vcpu_info), memory_info))
+    # Sort instance types based on how closely they match user's requirements
+    instance_types.sort(key=lambda x: (abs(x[1] - custom_vcpu), abs(x[2] - custom_memory)))
+    # Return the top 5 closest matches
+    return instance_types[:5]
+#print("Here are the top 5 instances that best match the number of vcpus and memory you want!")
+#print(get_instance_types('us-west-2', custom_vcpu, custom_memory))
+
+
+
+
+# Example usage
+instance_type = 'g4dn.xlarge'  # Specify the instance type
+region = 'us-west-2'  # Specify the region
+
+
+def get_available_amis(instance_type, region):
+    ec2_client = boto3.client('ec2', region_name=region)
+    
+    # Get a list of available AMIs for the specified instance type
+    response = ec2_client.describe_images(
+        Filters=[
+            {'Name': 'virtualization-type', 'Values': ['hvm']},
+            {'Name': 'architecture', 'Values': ['x86_64']},
+            {'Name': 'state', 'Values': ['available']},
+            {'Name': 'root-device-type', 'Values': ['ebs']},
+            {'Name': 'block-device-mapping.volume-type', 'Values': ['gp2']},
+            {'Name': 'block-device-mapping.device-name', 'Values': ['/dev/sda1']},
+            {'Name': 'is-public', 'Values': ['true']}
+        ]
+    )
+
+    # Filter the list to include only AMIs that support the specified instance type
+    available_amis = []
+    for image in response['Images']:
+        for block_device_mapping in image['BlockDeviceMappings']:
+            if 'Ebs' in block_device_mapping:
+                if 'Ebs' in block_device_mapping and 'VolumeType' in block_device_mapping['Ebs']:
+                    if block_device_mapping['Ebs']['VolumeType'] == 'gp2':
+                        available_amis.append(image)
+                        break
+
+    return available_amis
+
+available_amis = get_available_amis(instance_type, region)
+
+
+'''for ami in available_amis:
+    print("AMI ID:", ami['ImageId'])'''
+
+def get_ec2_instance_pricing(instance_type, region):
+    pricing_client = boto3.client('pricing', region_name=region)
+    response = pricing_client.get_products(
+        ServiceCode='AmazonEC2',
+        Filters=[
+            {'Type': 'TERM_MATCH', 'Field': 'instanceType', 'Value': instance_type}
+        ]
+    )
+    # Parse the response and extract pricing information
+    prices = []
+    for product in response['PriceList']:
+        price_dimensions = product['terms']['OnDemand'][list(product['terms']['OnDemand'].keys())[0]]['priceDimensions']
+        for price_dimension_key in price_dimensions:
+            price = float(price_dimensions[price_dimension_key]['pricePerUnit']['USD'])
+            prices.append(price)
+    return min(prices) if prices else None
+
+# Example usage
+instance_type = 't2.micro'
+region = 'us-west-2'
+price = get_ec2_instance_pricing(instance_type, region)
+print("Price per hour for {} in {}: ${}".format(instance_type, region, price))
+
+
+# finds the cheapest instance types of the top 5 instance types
+def get_cheapest_instance_type(region, custom_vcpu, custom_memory):
+    ec2 = boto3.client('ec2', region_name=region)
+    instance_types = get_instance_types(region, custom_vcpu, custom_memory)
+    cheapest_instance_type = instance_types[0]
+    for instance_type in instance_types:
+        instance_type_info = ec2.describe_instance_types(InstanceTypes=[instance_type[0]])
+        print(instance_type_info)
+        price = instance_type_info['InstanceTypes'][0]['PricingDetails'][0]['Price']
+        if price < cheapest_instance_type[0]:
+            cheapest_instance_type = (price, instance_type)
+    return cheapest_instance_type
+print("The cheapest instance type that best matches the number of vcpus and memory you want is:")
+print(get_cheapest_instance_type('us-west-2', custom_vcpu, custom_memory))
+
+# Now I want to deploy a set number of instances inside the VPC
+for i in range(number_of_instances):
+    subnet = aws.ec2.Subnet(f'my-subnet-{i}',
+        vpc_id=vpc.id,
+        cidr_block=f'10.0.{i}.0/24',
+        tags={'Name': f'my-subnet-{i}'}
+    )
+    subnet_id = subnet.id
+
+    instance = aws.ec2.Instance(f'my-instance-{i}',
+        instance_type='t2.micro',
+        vpc_security_group_ids=[vpc.default_security_group_id],
+        ami='ami-0c55b159cbfafe1f0',
+        tags={'Name': f'my-instance-{i}'},
+        subnet_id=subnet_id
+    )
+
+pulumi.export('vpc_id', vpc.id)
